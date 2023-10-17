@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    tools:ignore="UseCompoundDrawables">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/helpText"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/showingImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="@string/image"
+        app:srcCompat="@drawable/foto_1"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/resultImage"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:contentDescription="@string/yes_or_no"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/no" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/organic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/trash"
+            app:srcCompat="@drawable/organico"
+            tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+        <ImageButton
+            android:id="@+id/paper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/trash"
+            app:srcCompat="@drawable/papel"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/plastic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/trash"
+            app:srcCompat="@drawable/plastico"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/vidrio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/trash"
+            app:srcCompat="@drawable/vidrio"
+            tools:ignore="ImageContrastCheck" />
+
+    </LinearLayout>
+</LinearLayout>

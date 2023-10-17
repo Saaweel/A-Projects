@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ListaDeTareas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tasksTitle">Tareas Pendientes</string>
+    <string name="inputTask">Tarea</string>
+    <string name="add">Agregar</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Switch
+        android:id="@+id/switchSee"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:checked="true"
+        android:minHeight="48dp"
+        android:text="@string/seeU"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <ImageView
+        android:id="@+id/imageResult"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:layout_marginTop="30dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/seeu"
+        android:contentDescription="@string/imageResultDescription" />
+</LinearLayout>

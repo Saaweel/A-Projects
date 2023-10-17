@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Reciclaje</string>
+    <string name="helpText">Recíclalo en el lugar correcto</string>
+    <string name="image">Imagen de muestra</string>
+    <string name="yes_or_no">Acertado o no</string>
+    <string name="trash">Contenedor</string>
+</resources>

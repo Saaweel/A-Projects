@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mayor De 18</string>
+    <string name="age">Edad</string>
+    <string name="name">Nombre</string>
+    <string name="send">Enviar</string>
+    <string name="result_of_age">Resultado de la edad</string>
+</resources>
