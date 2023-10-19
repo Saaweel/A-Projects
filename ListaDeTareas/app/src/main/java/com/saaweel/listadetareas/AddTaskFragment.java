@@ -1,12 +1,13 @@
 package com.saaweel.listadetareas;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,9 +57,26 @@ public class AddTaskFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_task, container, false);
+        View view = inflater.inflate(R.layout.add_task_fragment, container, false);
+
+        Button sendTask = view.findViewById(R.id.sendTask);
+
+        EditText inputTask = view.findViewById(R.id.inputTask);
+
+        sendTask.setOnClickListener(e -> {
+            String task = inputTask.getText().toString();
+
+            if (!task.isEmpty()) {
+                TaskListFragment taskListFragment = (TaskListFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.listContainer);
+
+                taskListFragment.addTask(task);
+
+                inputTask.setText("");
+            }
+        });
+
+        return view;
     }
 }
