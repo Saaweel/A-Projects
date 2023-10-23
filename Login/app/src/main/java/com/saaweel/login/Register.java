@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,9 +60,34 @@ public class Register extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_register, container, false);
+
+        Button confirmLogin = view.findViewById(R.id.confirmRegister);
+
+        EditText userInput = view.findViewById(R.id.userInput);
+        userInput.setText(mParam1);
+
+        EditText passInput = view.findViewById(R.id.passInput);
+        passInput.setText(mParam2);
+
+        EditText emailInput = view.findViewById(R.id.emailInput);
+
+        confirmLogin.setOnClickListener(e -> {
+            String user = userInput.getText().toString();
+            String pass = passInput.getText().toString();
+            String email = emailInput.getText().toString();
+
+            if (!user.isEmpty() && !pass.isEmpty() && !email.isEmpty()) {
+                LinearLayout loginContainer = view.findViewById(R.id.registerContainer);
+                loginContainer.removeAllViews();
+
+                ImageView registeredImage = new ImageView(getContext());
+                registeredImage.setImageResource(R.drawable.loggedin);
+                loginContainer.addView(registeredImage);
+            }
+        });
+
+        return view;
     }
 }
