@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Login" >
+
+    <EditText
+        android:id="@+id/userInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/username"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColorHint="@color/m3_hint_foreground"
+        tools:ignore="PrivateResource,TextContrastCheck,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/passInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <Button
+        android:id="@+id/confirmLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        tools:ignore="VisualLintButtonSize" />
+</LinearLayout>
