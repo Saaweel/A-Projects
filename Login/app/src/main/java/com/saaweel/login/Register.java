@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,13 +19,10 @@ import android.widget.LinearLayout;
  * create an instance of this fragment.
  */
 public class Register extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -40,7 +38,6 @@ public class Register extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment Register.
      */
-    // TODO: Rename and change types and number of parameters
     public static Register newInstance(String param1, String param2) {
         Register fragment = new Register();
         Bundle args = new Bundle();
@@ -66,10 +63,12 @@ public class Register extends Fragment {
         Button confirmLogin = view.findViewById(R.id.confirmRegister);
 
         EditText userInput = view.findViewById(R.id.userInput);
-        userInput.setText(mParam1);
+        if (mParam1 != null && !mParam1.isEmpty())
+            userInput.setText(mParam1);
 
         EditText passInput = view.findViewById(R.id.passInput);
-        passInput.setText(mParam2);
+        if (mParam2 != null && !mParam2.isEmpty())
+            passInput.setText(mParam2);
 
         EditText emailInput = view.findViewById(R.id.emailInput);
 
@@ -85,6 +84,8 @@ public class Register extends Fragment {
                 ImageView registeredImage = new ImageView(getContext());
                 registeredImage.setImageResource(R.drawable.loggedin);
                 loginContainer.addView(registeredImage);
+            } else {
+                Toast.makeText(getContext(), "Debes rellenar todos los campos", Toast.LENGTH_SHORT).show();
             }
         });
 

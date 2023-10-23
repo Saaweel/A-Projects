@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,7 +75,7 @@ public class Login extends Fragment {
             String pass = passInput.getText().toString();
 
             if (!user.isEmpty() && !pass.isEmpty()) {
-                if (user.equals("admin") && pass.equals("admin")) {
+                if (user.equals("admin") && pass.equals("1234")) {
                     LinearLayout loginContainer = view.findViewById(R.id.loginContainer);
                     loginContainer.removeAllViews();
 
@@ -84,6 +85,8 @@ public class Login extends Fragment {
                 } else {
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Register().newInstance(user, pass)).commit();
                 }
+            } else {
+                Toast.makeText(getContext(), "Debes rellenar todos los campos", Toast.LENGTH_SHORT).show();
             }
         });
 
