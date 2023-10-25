@@ -56,6 +56,15 @@ public class Register extends Fragment {
         }
     }
 
+    /*
+     * Valida que el email sea correcto
+     * @param email
+     * @return boolean
+     */
+    private boolean validateEmail(String email) {
+        return email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
@@ -78,12 +87,16 @@ public class Register extends Fragment {
             String email = emailInput.getText().toString();
 
             if (!user.isEmpty() && !pass.isEmpty() && !email.isEmpty()) {
-                LinearLayout loginContainer = view.findViewById(R.id.registerContainer);
-                loginContainer.removeAllViews();
+                if (validateEmail(email)) {
+                    LinearLayout loginContainer = view.findViewById(R.id.registerContainer);
+                    loginContainer.removeAllViews();
 
-                ImageView registeredImage = new ImageView(getContext());
-                registeredImage.setImageResource(R.drawable.loggedin);
-                loginContainer.addView(registeredImage);
+                    ImageView registeredImage = new ImageView(getContext());
+                    registeredImage.setImageResource(R.drawable.loggedin);
+                    loginContainer.addView(registeredImage);
+                } else {
+                    Toast.makeText(getContext(), "Email no válido", Toast.LENGTH_SHORT).show();
+                }
             } else {
                 Toast.makeText(getContext(), "Debes rellenar todos los campos", Toast.LENGTH_SHORT).show();
             }
