@@ -95,10 +95,12 @@ public class Register extends Fragment {
                     registeredImage.setImageResource(R.drawable.loggedin);
                     loginContainer.addView(registeredImage);
                 } else {
-                    Toast.makeText(getContext(), "Email no válido", Toast.LENGTH_SHORT).show();
+                    emailInput.setError("Email inválido");
                 }
             } else {
-                Toast.makeText(getContext(), "Debes rellenar todos los campos", Toast.LENGTH_SHORT).show();
+                userInput.setError("Debes rellenar todos los campos");
+                passInput.setError("Debes rellenar todos los campos");
+                emailInput.setError("Debes rellenar todos los campos");
             }
         });
 
