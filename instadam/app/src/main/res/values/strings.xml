@@ -9,4 +9,11 @@
     <string name="camera">Cámara</string>
     <string name="notify">Notificaciones</string>
     <string name="profile">Perfil</string>
+    <string name="messages">Mensajes</string>
+
+    <string-array name="home_toolbar_spinner">
+        <item>Para ti</item>
+        <item>Siguiendo</item>
+        <item>Favoritos</item>
+    </string-array>
 </resources>
