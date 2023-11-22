@@ -10,10 +10,18 @@
     <string name="notify">Notificaciones</string>
     <string name="profile">Perfil</string>
     <string name="messages">Mensajes</string>
+    <string name="profile_photo">Foto de perfil</string>
 
     <string-array name="home_toolbar_spinner">
         <item>Para ti</item>
         <item>Siguiendo</item>
         <item>Favoritos</item>
     </string-array>
+
+    <string name="username">Nombre de usuario</string>
+    <string name="image">Imagen</string>
+    <string name="no_likes">0 Me gustas</string>
+    <string name="description">Descripción</string>
+    <string name="more">Más</string>
+    <string name="verified">Verificado</string>
 </resources>
