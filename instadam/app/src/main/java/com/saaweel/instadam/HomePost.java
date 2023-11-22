@@ -1,16 +1,16 @@
 package com.saaweel.instadam;
 
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-import de.hdodenhof.circleimageview.CircleImageView;
+
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomePost extends RecyclerView.ViewHolder {
-    private Post postData;
 
     private final CircleImageView avatar;
 
@@ -36,8 +36,6 @@ public class HomePost extends RecyclerView.ViewHolder {
     }
 
     public void setPostData(Post post) {
-        postData = post;
-
         User user = post.getUser();
 
         Picasso.get().load(user.getAvatar()).into(avatar);
