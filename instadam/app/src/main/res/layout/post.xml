@@ -69,14 +69,13 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/like"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/like"
-            android:background="@drawable/heart_regular"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:src="@drawable/heart_regular" />
 
         <ImageView
             android:id="@+id/comment"
