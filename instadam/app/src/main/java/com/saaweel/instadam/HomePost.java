@@ -1,6 +1,7 @@
 package com.saaweel.instadam;
 
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,6 +10,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import com.squareup.picasso.Picasso;
 
 public class HomePost extends RecyclerView.ViewHolder {
+    private Post postData;
+
     private CircleImageView avatar;
 
     private TextView username;
@@ -21,6 +24,8 @@ public class HomePost extends RecyclerView.ViewHolder {
 
     private TextView description;
 
+    private ImageButton like;
+
     public HomePost(View view) {
         super(view);
 
@@ -30,9 +35,22 @@ public class HomePost extends RecyclerView.ViewHolder {
         image = view.findViewById(R.id.image);
         likes = view.findViewById(R.id.likes);
         description = view.findViewById(R.id.description);
+
+        like = view.findViewById(R.id.like);
+
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postData.setLikes(postData.getLikes() + 1);
+
+                likes.setText(postData.getLikes() + " Me gustas");
+            };
+        });
     }
 
     public void setPostData(Post post) {
+        postData = post;
+
         User user = post.getUser();
 
         Picasso.get().load(user.getAvatar()).into(avatar);

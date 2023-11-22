@@ -1,5 +1,7 @@
 package com.saaweel.instadam;
 
+import java.util.Random;
+
 public class Post {
     private User user;
 
@@ -13,7 +15,7 @@ public class Post {
         this.user = user;
         this.image = image;
         this.description = "";
-        this.likes = 0;
+        this.likes = new Random().nextInt(20000);
     }
 
     public User getUser() {
