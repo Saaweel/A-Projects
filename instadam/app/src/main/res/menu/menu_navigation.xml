@@ -2,9 +2,9 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/startItem"
+        android:id="@+id/homeItem"
         android:icon="@drawable/house_solid"
-        android:title="@string/start" />
+        android:title="@string/home" />
     <item
         android:id="@+id/searchItem"
         android:icon="@drawable/magnifying_glass_solid"

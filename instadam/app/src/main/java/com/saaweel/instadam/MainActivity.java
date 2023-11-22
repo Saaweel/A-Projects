@@ -29,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.bottomNavigation);
 
         // Cargamos de primera el fragmento de inicio
-        changeFragment(new Start());
+        changeFragment(new Home());
 
         // En base a la opción elegida cambiamos al fragmento necesario
         bottomNavigation.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.startItem) {
-                changeFragment(new Start());
+            if (item.getItemId() == R.id.homeItem) {
+                changeFragment(new Home());
             } else if (item.getItemId() == R.id.searchItem) {
                 changeFragment(new Search());
             } else if (item.getItemId() == R.id.cameraItem) {
