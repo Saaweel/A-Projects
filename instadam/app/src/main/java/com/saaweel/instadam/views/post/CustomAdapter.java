@@ -21,7 +21,7 @@ public class CustomAdapter extends RecyclerView.Adapter<HomePost> {
 
     @Override
     public HomePost onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.post, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.view_post, viewGroup, false);
 
         return new HomePost(view);
     }
