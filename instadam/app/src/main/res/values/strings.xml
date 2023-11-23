@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">InstaDam</string>
-    <string name="notifications">Notificaciones</string>
     <string name="chats">Chats</string>
     <string name="home">Inicio</string>
     <string name="search">Buscar</string>
@@ -28,4 +27,6 @@
     <string name="comment">comment</string>
     <string name="heart">heart</string>
     <string name="bookmark">bookmark</string>
+    <string name="circle_check">circle-check</string>
+    <string name="notification">Notificacion</string>
 </resources>

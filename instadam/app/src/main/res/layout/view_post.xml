@@ -35,7 +35,7 @@
             android:fontFamily="@font/fa_solid"
             android:layout_marginStart="10dp"
             android:textColor="@android:color/holo_blue_dark"
-            android:text="circle-check"
+            android:text="@string/circle_check"
             android:visibility="gone"
             android:textSize="18sp" />
 
