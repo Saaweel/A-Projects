@@ -1,4 +1,4 @@
-package com.saaweel.instadam.views.post;
+package com.saaweel.instadam.views.mini_post;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,23 +11,23 @@ import com.saaweel.instadam.poo.Post;
 
 import java.util.ArrayList;
 
-public class CustomAdapter extends RecyclerView.Adapter<HomePost> {
+public class MiniPostAdapter extends RecyclerView.Adapter<MiniPost> {
 
     private ArrayList<Post> localDataSet;
 
-    public CustomAdapter(ArrayList<Post> dataSet) {
+    public MiniPostAdapter(ArrayList<Post> dataSet) {
         localDataSet = dataSet;
     }
 
     @Override
-    public HomePost onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.view_post, viewGroup, false);
+    public MiniPost onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.view_mini_post, viewGroup, false);
 
-        return new HomePost(view);
+        return new MiniPost(view);
     }
 
     @Override
-    public void onBindViewHolder(HomePost post, final int position) {
+    public void onBindViewHolder(MiniPost post, final int position) {
         post.setPostData(localDataSet.get(position));
     }
 

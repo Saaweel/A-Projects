@@ -34,8 +34,8 @@
             android:layout_height="18dp"
             android:layout_margin="10dp"
             android:contentDescription="@string/verified"
-            android:visibility="gone"
-            android:src="@drawable/circle_check_solid" />
+            android:src="@drawable/circle_check_solid"
+            android:visibility="gone" />
 
         <Space
             android:layout_width="0dp"
