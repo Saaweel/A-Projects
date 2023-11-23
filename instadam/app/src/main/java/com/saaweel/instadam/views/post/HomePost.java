@@ -19,7 +19,7 @@ public class HomePost extends RecyclerView.ViewHolder {
 
     private final TextView username;
 
-    private final ImageView verified;
+    private final TextView verified;
 
     private final ImageView image;
 

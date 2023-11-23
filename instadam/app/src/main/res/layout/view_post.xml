@@ -28,27 +28,31 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <ImageView
+        <TextView
             android:id="@+id/verified"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_margin="10dp"
-            android:contentDescription="@string/verified"
-            android:src="@drawable/circle_check_solid"
-            android:visibility="gone" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fa_solid"
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:text="circle-check"
+            android:visibility="gone"
+            android:textSize="18sp" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <ImageView
+        <TextView
             android:id="@+id/more"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/messages"
-            android:src="@drawable/ellipsis_solid" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/fa_solid"
+            android:text="@string/ellipsis"
+            android:textSize="28sp" />
     </LinearLayout>
 
     <FrameLayout
@@ -69,42 +73,46 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
+        <TextView
             android:id="@+id/like"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/like"
-            android:src="@drawable/heart_regular" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:fontFamily="@font/fa_regular"
+            android:text="@string/heart"
+            android:textSize="28sp" />
 
-        <ImageView
+        <TextView
             android:id="@+id/comment"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/messages"
-            android:src="@drawable/comment_regular" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:fontFamily="@font/fa_regular"
+            android:text="@string/comment"
+            android:textSize="28sp" />
 
-        <ImageView
+        <TextView
             android:id="@+id/send"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/messages"
-            android:src="@drawable/paper_plane_regular" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:fontFamily="@font/fa_regular"
+            android:text="@string/paper_plane"
+            android:textSize="28sp" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <ImageView
+        <TextView
             android:id="@+id/save"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/messages"
-            android:src="@drawable/bookmark_regular" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:fontFamily="@font/fa_regular"
+            android:text="@string/bookmark"
+            android:textSize="28sp" />
     </LinearLayout>
 
     <TextView

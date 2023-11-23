@@ -24,13 +24,14 @@
             android:textColorHint="#666666"
             tools:ignore="VisualLintTextFieldSize" />
 
-        <ImageView
-            android:id="@+id/more"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/messages"
-            android:src="@drawable/ellipsis_solid" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/fa_solid"
+            android:text="@string/ellipsis"
+            android:textSize="28sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

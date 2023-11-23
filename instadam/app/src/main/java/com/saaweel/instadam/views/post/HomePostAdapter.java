@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.instadam.R;
@@ -13,12 +14,13 @@ import java.util.ArrayList;
 
 public class HomePostAdapter extends RecyclerView.Adapter<HomePost> {
 
-    private ArrayList<Post> localDataSet;
+    private final ArrayList<Post> localDataSet;
 
     public HomePostAdapter(ArrayList<Post> dataSet) {
         localDataSet = dataSet;
     }
 
+    @NonNull
     @Override
     public HomePost onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.view_post, viewGroup, false);

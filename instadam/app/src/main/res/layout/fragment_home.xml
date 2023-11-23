@@ -16,23 +16,23 @@
             android:layout_width="157dp"
             android:layout_height="48dp"
             android:layout_margin="2dp"
-            android:layout_weight="1"
             android:entries="@array/home_toolbar_spinner"
             android:minHeight="48dp" />
 
         <Space
-            android:layout_width="117dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <ImageView
+        <TextView
             android:id="@+id/openDirect"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/messages"
-            android:src="@drawable/paper_plane_regular" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/fa_regular"
+            android:text="@string/paper_plane"
+            android:textSize="28sp" />
 
     </LinearLayout>
 
