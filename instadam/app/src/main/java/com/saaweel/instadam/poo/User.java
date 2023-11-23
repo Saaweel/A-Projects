@@ -1,4 +1,4 @@
-package com.saaweel.instadam;
+package com.saaweel.instadam.poo;
 
 public class User {
     private String username;

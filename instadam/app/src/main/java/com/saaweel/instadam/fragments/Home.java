@@ -1,4 +1,4 @@
-package com.saaweel.instadam;
+package com.saaweel.instadam.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.saaweel.instadam.poo.Post;
+import com.saaweel.instadam.poo.User;
+import com.saaweel.instadam.views.post.CustomAdapter;
+import com.saaweel.instadam.R;
 
 import java.util.ArrayList;
 

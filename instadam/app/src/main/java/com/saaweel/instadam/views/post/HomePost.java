@@ -1,4 +1,4 @@
-package com.saaweel.instadam;
+package com.saaweel.instadam.views.post;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.saaweel.instadam.R;
+import com.saaweel.instadam.poo.Post;
+import com.saaweel.instadam.poo.User;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;

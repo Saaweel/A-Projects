@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.saaweel.instadam.fragments.Camera;
+import com.saaweel.instadam.fragments.Home;
+import com.saaweel.instadam.fragments.Notify;
+import com.saaweel.instadam.fragments.Profile;
+import com.saaweel.instadam.fragments.Search;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigation;

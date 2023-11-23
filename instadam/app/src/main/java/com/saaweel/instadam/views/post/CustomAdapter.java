@@ -1,10 +1,13 @@
-package com.saaweel.instadam;
+package com.saaweel.instadam.views.post;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.saaweel.instadam.R;
+import com.saaweel.instadam.poo.Post;
 
 import java.util.ArrayList;
 

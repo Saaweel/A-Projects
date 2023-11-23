@@ -1,4 +1,4 @@
-package com.saaweel.instadam;
+package com.saaweel.instadam.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class Search extends Fragment {
-    public Search() {
+import com.saaweel.instadam.R;
+
+public class Notify extends Fragment {
+    public Notify() {
         // Se necesita un constructor vacío
     }
 
@@ -19,6 +21,6 @@ public class Search extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        return inflater.inflate(R.layout.fragment_notify, container, false);
     }
 }
