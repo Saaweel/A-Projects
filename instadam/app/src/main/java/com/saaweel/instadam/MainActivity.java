@@ -12,6 +12,7 @@ import com.saaweel.instadam.fragments.Home;
 import com.saaweel.instadam.fragments.Notify;
 import com.saaweel.instadam.fragments.Profile;
 import com.saaweel.instadam.fragments.Search;
+import com.saaweel.instadam.poo.Noti;
 import com.saaweel.instadam.poo.Post;
 import com.saaweel.instadam.poo.User;
 
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         User user = new User("_saaweel_");
         user.setAvatar("https://scontent-mad1-1.cdninstagram.com/v/t51.2885-19/383839216_257979966663607_8135137719360071505_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=T4sKuG5ajsoAX-6SgvJ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfArkFFTwvOG6cVAX850DMmSPHcYtKY9RR6vUF-KAoRhMA&oe=6562AA47&_nc_sid=8b3546");
-        posts.add(new Post(user, "https://th.bing.com/th/id/OIP.yoyT2HWplwAAzSG_EcZIkwHaE8?rs=1&pid=ImgDetMain"));
+        Post post = new Post(user, "https://th.bing.com/th/id/OIP.yoyT2HWplwAAzSG_EcZIkwHaE8?rs=1&pid=ImgDetMain");
+        posts.add(post);
 
         user = new User("duki");
         user.setVerified(true);
@@ -50,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         user = new User("nicki.nicole");
         user.setVerified(true);
         posts.add(new Post(user, "https://th.bing.com/th/id/OIP.JWji_0qKHlCfVu_iw9qXxAHaE8?rs=1&pid=ImgDetMain"));
+
+        ArrayList<Noti> notifications = new ArrayList<>();
+
+        notifications.add(0, new Noti(user, post, "Le ha gustado tu publicación"));
+        notifications.add(0, new Noti(user, null, "Ha comenzado a seguirte"));
 
         bottomNavigation = findViewById(R.id.bottomNavigation);
 
@@ -63,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.cameraItem) {
                 changeFragment(new Camera());
             } else if (item.getItemId() == R.id.notifyItem) {
-                changeFragment(new Notify());
+                changeFragment(new Notify(notifications));
             } else if (item.getItemId() == R.id.profileItem) {
                 changeFragment(new Profile());
             }

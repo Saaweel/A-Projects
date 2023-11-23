@@ -6,12 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.instadam.R;
+import com.saaweel.instadam.poo.Noti;
+import com.saaweel.instadam.views.notification.NotificationAdapter;
+import com.saaweel.instadam.views.post.HomePostAdapter;
+
+import java.util.ArrayList;
 
 public class Notify extends Fragment {
-    public Notify() {
-        // Se necesita un constructor vacío
+    ArrayList<Noti> notifications;
+
+    public Notify(ArrayList<Noti> notifications) {
+        this.notifications = notifications;
     }
 
     @Override
@@ -21,6 +29,12 @@ public class Notify extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_notify, container, false);
+        View view = inflater.inflate(R.layout.fragment_notify, container, false);
+
+        NotificationAdapter customAdapter = new NotificationAdapter(this.notifications);
+        RecyclerView recyclerView = view.findViewById(R.id.notifications);
+        recyclerView.setAdapter(customAdapter);
+
+        return view;
     }
 }
