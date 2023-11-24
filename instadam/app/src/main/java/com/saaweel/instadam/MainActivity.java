@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Noti> notifications = new ArrayList<>();
 
-        notifications.add(0, new Noti(user, post, "Le ha gustado tu publicación"));
-        notifications.add(0, new Noti(user, null, "Ha comenzado a seguirte"));
+        notifications.add(0, new Noti(user, post.getImage(), "Le ha gustado tu publicación"));
+        notifications.add(0, new Noti(user, "Ha comenzado a seguirte"));
 
         bottomNavigation = findViewById(R.id.bottomNavigation);
 

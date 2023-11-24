@@ -5,15 +5,21 @@ import java.util.Date;
 public class Noti {
     private User user;
 
-    private Post post;
+    private String image;
 
     private String content;
 
     private Date date;
 
-    public Noti(User user, Post post, String content) {
+    public Noti(User user, String image, String content) {
         this.user = user;
-        this.post = post;
+        this.image = image;
+        this.content = content;
+        this.date = new Date();
+    }
+
+    public Noti(User user, String content) {
+        this.user = user;
         this.content = content;
         this.date = new Date();
     }
@@ -26,12 +32,12 @@ public class Noti {
         this.user = user;
     }
 
-    public Post getPost() {
-        return post;
+    public String getImage() {
+        return this.image;
     }
 
-    public void setPost(Post post) {
-        this.post = post;
+    public void setPost(String image) {
+        this.image = image;
     }
 
     public String getContent() {

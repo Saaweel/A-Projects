@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.instadam.R;
@@ -26,8 +27,6 @@ public class Notification extends RecyclerView.ViewHolder {
 
     private final TextView notifyContent;
 
-    private final TextView notifyAgo;
-
     private final ImageView postImage;
 
     public Notification(View view) {
@@ -37,7 +36,6 @@ public class Notification extends RecyclerView.ViewHolder {
         username = view.findViewById(R.id.username);
         verified = view.findViewById(R.id.verified);
         notifyContent = view.findViewById(R.id.notifyContent);
-        notifyAgo = view.findViewById(R.id.notifyAgo);
         postImage = view.findViewById(R.id.postImage);
     }
 
@@ -45,21 +43,20 @@ public class Notification extends RecyclerView.ViewHolder {
         User user = noti.getUser();
 
         Picasso.get().load(user.getAvatar()).into(avatar);
-        username.setText(user.getUsername());
+        this.username.setText(user.getUsername());
 
         if (user.isVerified())
-            verified.setVisibility(View.VISIBLE);
+            this.verified.setVisibility(View.VISIBLE);
 
-        notifyContent.setText(noti.getContent());
 
-        notifyAgo.setText(this.getTextAgoText(noti.getDate()));
+        this.notifyContent.setText(HtmlCompat.fromHtml("<span>" + noti.getContent() + " <span style='color: gray'>" + this.getTextAgoText(noti.getDate()) + "</span></span>", HtmlCompat.FROM_HTML_MODE_COMPACT));
 
-        Post post = noti.getPost();
+        String image = noti.getImage();
 
-        if (post != null)
-            Picasso.get().load(post.getImage()).into(postImage);
+        if (image != null)
+            Picasso.get().load(image).into(this.postImage);
         else
-            postImage.setVisibility(View.GONE);
+            this.postImage.setVisibility(View.GONE);
     }
 
     private String getTextAgoText(Date date) {

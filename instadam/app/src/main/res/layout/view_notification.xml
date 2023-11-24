@@ -38,16 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:textColor="#000000"
-        android:text="@string/description" />
-
-    <TextView
-        android:id="@+id/notifyAgo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:maxLines="1"
-        android:text="@string/ago" />
+        android:text="@string/description"
+        android:textColor="#000000" />
 
     <Space
         android:layout_width="0dp"
