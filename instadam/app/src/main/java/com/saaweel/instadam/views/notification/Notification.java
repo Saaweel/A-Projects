@@ -49,7 +49,7 @@ public class Notification extends RecyclerView.ViewHolder {
             this.verified.setVisibility(View.VISIBLE);
 
 
-        this.notifyContent.setText(HtmlCompat.fromHtml("<span>" + noti.getContent() + " <span style='color: gray'>" + this.getTextAgoText(noti.getDate()) + "</span></span>", HtmlCompat.FROM_HTML_MODE_COMPACT));
+        this.notifyContent.setText(HtmlCompat.fromHtml("<span>" + noti.getContent() + " <span style='white-space:nowrap; color: gray'>" + this.getTextAgoText(noti.getDate()) + "</span></span>", HtmlCompat.FROM_HTML_MODE_COMPACT));
 
         String image = noti.getImage();
 
