@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation = findViewById(R.id.bottomNavigation);
 
+        bottomNavigation.getOrCreateBadge(R.id.notifyItem).setNumber(notifications.size());
+
         changeFragment(new Home(posts));
 
         bottomNavigation.setOnItemSelectedListener(item -> {
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 changeFragment(new Camera());
             } else if (item.getItemId() == R.id.notifyItem) {
                 changeFragment(new Notify(notifications));
+                bottomNavigation.getOrCreateBadge(R.id.notifyItem).setVisible(false);
             } else if (item.getItemId() == R.id.profileItem) {
                 changeFragment(new Profile());
             }
