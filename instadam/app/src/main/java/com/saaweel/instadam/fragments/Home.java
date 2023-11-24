@@ -17,6 +17,10 @@ import java.util.ArrayList;
 public class Home extends Fragment {
     private ArrayList<Post> posts;
 
+    public Home() {
+
+    }
+
     public Home(ArrayList<Post> posts) {
         this.posts = posts;
     }

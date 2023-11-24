@@ -19,6 +19,10 @@ import java.util.ArrayList;
 public class Search extends Fragment {
     private ArrayList<Post> posts;
 
+    public Search() {
+
+    }
+    
     public Search(ArrayList<Post> posts) {
         this.posts = posts;
     }

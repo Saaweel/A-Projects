@@ -18,6 +18,10 @@ import java.util.ArrayList;
 public class Notify extends Fragment {
     ArrayList<Noti> notifications;
 
+    public Notify() {
+
+    }
+
     public Notify(ArrayList<Noti> notifications) {
         this.notifications = notifications;
     }
