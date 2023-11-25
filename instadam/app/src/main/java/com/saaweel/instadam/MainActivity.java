@@ -23,9 +23,9 @@ import com.saaweel.instadam.fragments.Notify;
 import com.saaweel.instadam.fragments.Profile;
 import com.saaweel.instadam.fragments.Search;
 import com.saaweel.instadam.lib.ImgurAPI;
-import com.saaweel.instadam.poo.Noti;
-import com.saaweel.instadam.poo.Post;
-import com.saaweel.instadam.poo.User;
+import com.saaweel.instadam.models.Noti;
+import com.saaweel.instadam.models.Post;
+import com.saaweel.instadam.models.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;

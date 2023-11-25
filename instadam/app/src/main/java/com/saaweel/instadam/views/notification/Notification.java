@@ -8,9 +8,8 @@ import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.instadam.R;
-import com.saaweel.instadam.poo.Noti;
-import com.saaweel.instadam.poo.Post;
-import com.saaweel.instadam.poo.User;
+import com.saaweel.instadam.models.Noti;
+import com.saaweel.instadam.models.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.Date;

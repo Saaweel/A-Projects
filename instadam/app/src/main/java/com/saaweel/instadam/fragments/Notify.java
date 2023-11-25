@@ -9,9 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.instadam.R;
-import com.saaweel.instadam.poo.Noti;
+import com.saaweel.instadam.models.Noti;
 import com.saaweel.instadam.views.notification.NotificationAdapter;
-import com.saaweel.instadam.views.post.HomePostAdapter;
 
 import java.util.ArrayList;
 

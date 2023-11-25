@@ -7,8 +7,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.instadam.R;
-import com.saaweel.instadam.poo.Post;
-import com.saaweel.instadam.poo.User;
+import com.saaweel.instadam.models.Post;
+import com.saaweel.instadam.models.User;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;

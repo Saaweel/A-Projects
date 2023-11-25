@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.saaweel.instadam.poo.Post;
+import com.saaweel.instadam.models.Post;
 import com.saaweel.instadam.views.post.HomePostAdapter;
 import com.saaweel.instadam.R;
 

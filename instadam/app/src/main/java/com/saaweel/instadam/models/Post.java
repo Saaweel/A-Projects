@@ -1,4 +1,4 @@
-package com.saaweel.instadam.poo;
+package com.saaweel.instadam.models;
 
 import java.util.Random;
 

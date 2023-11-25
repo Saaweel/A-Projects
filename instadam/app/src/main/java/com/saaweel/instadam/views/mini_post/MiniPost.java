@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.instadam.R;
-import com.saaweel.instadam.poo.Post;
+import com.saaweel.instadam.models.Post;
 import com.squareup.picasso.Picasso;
 
 public class MiniPost extends RecyclerView.ViewHolder {
