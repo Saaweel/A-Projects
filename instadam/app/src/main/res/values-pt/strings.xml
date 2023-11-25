@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InstaDam</string>
+    <string name="chats">Conversas</string>
+    <string name="home">Início</string>
+    <string name="search">Pesquisar</string>
+    <string name="camera">Câmera</string>
+    <string name="notify">Notificações</string>
+    <string name="profile">Perfil</string>
+    <string name="messages">Mensagens</string>
+    <string name="profile_photo">Foto do Perfil</string>
+    <string name="username">Nome de Usuário</string>
+    <string name="image">Imagem</string>
+    <string name="no_likes">0 Curtidas</string>
+    <string name="description">Descrição</string>
+    <string name="more">Mais</string>
+    <string name="verified">Verificado</string>
+    <string name="like">Curtir</string>
+    <string name="notification">Notificação</string>
+    <string name="ago">Há</string>
+    <string name="zero">0</string>
+    <string name="posts">Publicações</string>
+    <string name="followers">Seguidores</string>
+    <string name="follows">Seguindo</string>
+    <string name="follow">Seguir</string>
+
+    <string-array name="home_toolbar_spinner">
+        <item>Para Você</item>
+        <item>Seguindo</item>
+        <item>Favoritos</item>
+    </string-array>
+</resources>

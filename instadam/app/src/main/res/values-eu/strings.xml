@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InstaDam</string>
+    <string name="chats">Txat</string>
+    <string name="home">Hasiera</string>
+    <string name="search">Bilatu</string>
+    <string name="camera">Kamera</string>
+    <string name="notify">Jakinarazpenak</string>
+    <string name="profile">Profila</string>
+    <string name="messages">Mezuak</string>
+    <string name="profile_photo">Profila Argazkia</string>
+    <string name="username">Erabiltzailea</string>
+    <string name="image">Irudia</string>
+    <string name="no_likes">0 Gustuko Dituzu</string>
+    <string name="description">Deskribapena</string>
+    <string name="more">Gehiago</string>
+    <string name="verified">Berifikatua</string>
+    <string name="like">Gustatu</string>
+    <string name="notification">Jakinarazpena</string>
+    <string name="ago">Orduz</string>
+    <string name="zero">0</string>
+    <string name="posts">Iruzkinak</string>
+    <string name="followers">Jarraitzaileak</string>
+    <string name="follows">Jarraitzen duenak</string>
+    <string name="follow">Jarraitu</string>
+
+    <string-array name="home_toolbar_spinner">
+        <item>Zuretzat</item>
+        <item>Jakindakoak</item>
+        <item>Gogokoenak</item>
+    </string-array>
+</resources>
