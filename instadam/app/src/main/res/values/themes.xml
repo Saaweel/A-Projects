@@ -6,6 +6,8 @@
 
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">#40000000</item>
+
+        <item name="colorPrimary">#0095f6</item>
     </style>
 
 
