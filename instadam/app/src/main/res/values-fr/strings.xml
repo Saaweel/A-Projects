@@ -29,4 +29,5 @@
         <item>Abonnements</item>
         <item>Favoris</item>
     </string-array>
+    <string name="likes_format">%s J aime</string>
 </resources>

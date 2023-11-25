@@ -11,6 +11,10 @@ import com.saaweel.instadam.models.Post;
 import com.saaweel.instadam.models.User;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomePost extends RecyclerView.ViewHolder {
@@ -49,7 +53,9 @@ public class HomePost extends RecyclerView.ViewHolder {
 
         Picasso.get().load(post.getImage()).into(image);
 
-        likes.setText(post.getLikes() + " Me gustas");
+        String count = new DecimalFormat("#,###", new DecimalFormatSymbols(Locale.getDefault())).format(post.getLikes());
+        String likesString = likes.getContext().getString(R.string.likes_format, count);
+        likes.setText(likesString);
 
         description.setText(post.getDescription());
     }

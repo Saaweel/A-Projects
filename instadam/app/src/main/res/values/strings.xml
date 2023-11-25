@@ -22,6 +22,7 @@
     <string name="followers">Followers</string>
     <string name="follows">Following</string>
     <string name="follow">Follow</string>
+    <string name="likes_format">%s Likes</string>
 
     <string-array name="home_toolbar_spinner">
         <item>For You</item>

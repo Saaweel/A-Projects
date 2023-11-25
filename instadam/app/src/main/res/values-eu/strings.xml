@@ -29,4 +29,5 @@
         <item>Jakindakoak</item>
         <item>Gogokoenak</item>
     </string-array>
+    <string name="likes_format">%s Gustuko Dituzu</string>
 </resources>

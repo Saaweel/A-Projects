@@ -29,4 +29,5 @@
         <item>Siguiendo</item>
         <item>Favoritos</item>
     </string-array>
+    <string name="likes_format">%s Me gustas</string>
 </resources>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="paper_plane">paper-plane</string>
+    <string name="paper_plane" translatable="false">paper-plane</string>
     <string name="ellipsis">ellipsis</string>
-    <string name="comment">comment</string>
-    <string name="heart">heart</string>
-    <string name="bookmark">bookmark</string>
-    <string name="circle_check">circle-check</string>
-    <string name="plus">plus</string>
-    <string name="bars">bars</string>
+    <string name="comment" translatable="false">comment</string>
+    <string name="heart" translatable="false">heart</string>
+    <string name="bookmark" translatable="false">bookmark</string>
+    <string name="circle_check" translatable="false">circle-check</string>
+    <string name="plus" translatable="false">plus</string>
+    <string name="bars" translatable="false">bars</string>
 </resources>
