@@ -1,13 +1,20 @@
 package com.saaweel.instadam;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.saaweel.instadam.fragments.Camera;
 import com.saaweel.instadam.fragments.Home;
 import com.saaweel.instadam.fragments.Notify;
 import com.saaweel.instadam.fragments.Profile;
@@ -20,6 +27,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigation;
+
+    private ActivityResultLauncher<Intent> activityCamera;
 
     /*
      * Este método se encarga de cambiar el fragmento que se muestra en pantalla
@@ -46,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        activityCamera = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Intent data = result.getData();
+
+                System.out.println(data);
+            }
+        });
 
         ArrayList<Post> posts = new ArrayList<>();
 
@@ -82,7 +99,12 @@ public class MainActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.searchItem) {
                 changeFragment(new Search(posts));
             } else if (item.getItemId() == R.id.cameraItem) {
-                changeFragment(new Camera());
+                int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA);
+                if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 225);
+                } else {
+                    activityCamera.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
+                }
             } else if (item.getItemId() == R.id.notifyItem) {
                 changeFragment(new Notify(notifications));
                 bottomNavigation.getOrCreateBadge(R.id.notifyItem).setVisible(false);
