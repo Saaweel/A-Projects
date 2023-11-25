@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="paper_plane">paper-plane</string>
+    <string name="ellipsis">ellipsis</string>
+    <string name="comment">comment</string>
+    <string name="heart">heart</string>
+    <string name="bookmark">bookmark</string>
+    <string name="circle_check">circle-check</string>
+    <string name="plus">plus</string>
+    <string name="bars">bars</string>
+</resources>
