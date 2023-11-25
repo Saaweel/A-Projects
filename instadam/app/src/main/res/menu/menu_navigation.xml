@@ -12,7 +12,7 @@
     <item
         android:id="@+id/cameraItem"
         android:icon="@drawable/camera_solid"
-        android:title="@string/camera" />
+        android:title="@string/publish" />
     <item
         android:id="@+id/notifyItem"
         android:icon="@drawable/bell_solid"
