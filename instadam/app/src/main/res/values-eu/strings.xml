@@ -23,6 +23,16 @@
     <string name="followers">Jarraitzaileak</string>
     <string name="follows">Jarraitzen duenak</string>
     <string name="follow">Jarraitu</string>
+    <string name="user">Erabiltzailea</string>
+    <string name="password">Pasahitza</string>
+    <string name="login">Saioa hasi</string>
+    <string name="register">Erregistratu</string>
+    <string name="or_separator">------ edo ------</string>
+    <string name="email">Posta elektronikoa</string>
+    <string name="incorrect_credentials">Ez da aurkitu konturik horietako kredentzialak erabiliz</string>
+    <string name="username_or_email_yet">Erabiltzaile edo posta elektroniko hori jada erabiliz</string>
+    <string name="must_complete_fields">Bete behar dituzu eremu guztiak</string>
+    <string name="error">Errorea</string>
 
     <string-array name="home_toolbar_spinner">
         <item>Zuretzat</item>

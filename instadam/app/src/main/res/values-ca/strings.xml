@@ -23,6 +23,17 @@
     <string name="followers">Seguidors</string>
     <string name="follows">Seguits</string>
     <string name="follow">Segueix</string>
+    <string name="user">Usuari</string>
+    <string name="password">Contrasenya</string>
+    <string name="login">Inicia sessió</string>
+    <string name="register">Registra\'t</string>
+    <string name="or_separator">------ o ------</string>
+    <string name="email">Correu electrònic</string>
+    <string name="incorrect_credentials">No s\'ha trobat cap compte amb aquestes credencials</string>
+    <string name="username_or_email_yet">Aquest usuari i/o correu electrònic ja estan en ús</string>
+    <string name="must_complete_fields">Has de completar tots els camps</string>
+    <string name="error">Error</string>
+
 
     <string-array name="home_toolbar_spinner">
         <item>Per a tu</item>

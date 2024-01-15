@@ -23,6 +23,16 @@
     <string name="followers">Seguidores</string>
     <string name="follows">Seguindo</string>
     <string name="follow">Seguir</string>
+    <string name="user">Usuário</string>
+    <string name="password">Senha</string>
+    <string name="login">Entrar</string>
+    <string name="register">Registrar</string>
+    <string name="or_separator">------ ou ------</string>
+    <string name="email">E-mail</string>
+    <string name="incorrect_credentials">Nenhuma conta encontrada com essas credenciais</string>
+    <string name="username_or_email_yet">Esse usuário e/ou e-mail já estão em uso</string>
+    <string name="must_complete_fields">Você deve preencher todos os campos</string>
+    <string name="error">Erro</string>
 
     <string-array name="home_toolbar_spinner">
         <item>Para Você</item>

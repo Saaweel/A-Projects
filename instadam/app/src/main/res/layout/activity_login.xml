@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:textAlignment="center"
+    tools:context=".activities.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="165dp"
+        android:layout_height="165dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/app_name"
+        app:srcCompat="@drawable/instadam"
+        tools:ignore="ImageContrastCheck" />
+
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:ems="10"
+        android:hint="@string/user"
+        android:importantForAutofill="yes"
+        android:inputType="text"
+        android:minHeight="48dp"
+        tools:ignore="Autofill,LabelFor,VisualLintTextFieldSize,TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:importantForAutofill="yes"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:visibility="gone"
+        tools:ignore="Autofill,LabelFor,TextContrastCheck,TextFields,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:importantForAutofill="yes"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        tools:ignore="Autofill,LabelFor,VisualLintTextFieldSize,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:background="#A8EA6A6A"
+        android:padding="5dp"
+        android:text="@string/error"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        app:cornerRadius="5dp"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/or_separator"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/changeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textColor="#0095f6"
+        android:textStyle="bold|italic" />
+</LinearLayout>

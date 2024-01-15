@@ -23,6 +23,16 @@
     <string name="follows">Following</string>
     <string name="follow">Follow</string>
     <string name="likes_format">%s Likes</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="or_separator">------ or ------</string>
+    <string name="email">Email</string>
+    <string name="incorrect_credentials">No account found with those credentials</string>
+    <string name="username_or_email_yet">That user and/or email are already in use</string>
+    <string name="must_complete_fields">You must complete all fields</string>
+    <string name="error">Error</string>
 
     <string-array name="home_toolbar_spinner">
         <item>For You</item>
