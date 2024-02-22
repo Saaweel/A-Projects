@@ -19,12 +19,12 @@ import com.saaweel.instadam.R;
  */
 public class LoginActivity extends AppCompatActivity {
 
-    /*
+    /**
      * Indica si el estado actual es para inicio de sesión (true) o registro (false).
      */
     boolean login = true;
 
-    /*
+    /**
      * Se llama cuando se crea la actividad. Inicializa los elementos de la interfaz de usuario,
      * configura los escuchadores de eventos y maneja el inicio de sesión o el registro según la
      * entrada del usuario.
@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    /*
+    /**
      * Simula el proceso de registro y devuelve un booleano que indica si el registro fue exitoso.
      *
      * @param user  El nombre de usuario proporcionado por el usuario durante el registro.
@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    /*
+    /**
      * Simula el proceso de inicio de sesión y devuelve un booleano que indica si el inicio de sesión fue exitoso.
      *
      * @param user El nombre de usuario proporcionado por el usuario durante el inicio de sesión.

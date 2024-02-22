@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Noti> notifications;
     private User myUser;
 
-    /*
+    /**
      * Este método se encarga de cargar los datos simulados
      * @return void
      */
