@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * Simula el proceso de registro y devuelve un booleano que indica si el registro fue exitoso.
+     * Proceso de registro y devuelve un booleano que indica si el registro fue exitoso.
      *
      * @param user  El nombre de usuario proporcionado por el usuario durante el registro.
      * @param pass  La contraseña proporcionada por el usuario durante el registro.
@@ -111,21 +111,19 @@ public class LoginActivity extends AppCompatActivity {
      * @return boolean Devuelve true si el registro es exitoso; de lo contrario, devuelve false.
      */
     private boolean doRegister(String user, String pass, String email) {
-        // Implementación del proceso de registro (no proporcionada en el fragmento de código)
-        // La implementación de marcador de posición devuelve true.
+        // TODO: Validar si los datos cumplen el formato correcto y en ese caso insertarlos en la base de datos
         return true;
     }
 
     /**
-     * Simula el proceso de inicio de sesión y devuelve un booleano que indica si el inicio de sesión fue exitoso.
+     * Proceso de inicio de sesión y devuelve un booleano que indica si el inicio de sesión fue exitoso.
      *
      * @param user El nombre de usuario proporcionado por el usuario durante el inicio de sesión.
      * @param pass La contraseña proporcionada por el usuario durante el inicio de sesión.
      * @return boolean Devuelve true si el inicio de sesión es exitoso; de lo contrario, devuelve false.
      */
     private boolean doLogin(String user, String pass) {
-        // Implementación del proceso de inicio de sesión (no proporcionada en el fragmento de código)
-        // La implementación de marcador de posición devuelve true.
+        // TODO: Validar si los datos coinciden con los de la base de datos
         return true;
     }
 }
