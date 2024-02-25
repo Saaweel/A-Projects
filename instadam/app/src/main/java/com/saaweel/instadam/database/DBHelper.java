@@ -23,7 +23,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DBFrame.CREATE_TABLE_USERS);
         db.execSQL(DBFrame.CREATE_TABLE_NOTIFICATIONS);
 
         // Simulación de notificaciones
@@ -42,7 +41,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + DBFrame.TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + DBFrame.TABLE_NOTIFICATIONS);
         onCreate(db);
     }
