@@ -2,6 +2,9 @@
 package com.saaweel.instadam.fragments;
 
 // Declaraciones de librerías
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.instadam.R;
+import com.saaweel.instadam.activities.LoginActivity;
 import com.saaweel.instadam.models.Post;
 import com.saaweel.instadam.models.User;
 import com.saaweel.instadam.views.mini_post.MiniPostAdapter;
@@ -103,7 +107,14 @@ public class Profile extends Fragment {
 
         if (isMyProfile) { // Si el perfil es del propio usuario
             Button followButton = view.findViewById(R.id.followButton);
-            followButton.setVisibility(View.INVISIBLE); // Ocultar botón de seguir
+            followButton.setText(R.string.logout); // Cambiar texto del botón de seguir a "Cerrar sesión"
+
+            followButton.setOnClickListener(v -> { // Configurar escuchador de eventos para el botón de seguir
+                // Cerrar sesión
+                this.getContext().getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().remove("LOGIN_USERNAME").apply();
+                Intent intent = new Intent(this.getContext(), LoginActivity.class);
+                startActivity(intent);
+            });
         }
 
         return view;

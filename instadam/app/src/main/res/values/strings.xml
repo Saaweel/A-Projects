@@ -33,6 +33,7 @@
     <string name="username_or_email_yet">That user and/or email are already in use</string>
     <string name="must_complete_fields">You must complete all fields</string>
     <string name="error">Error</string>
+    <string name="logout">Logout</string>
 
     <string-array name="home_toolbar_spinner">
         <item>For You</item>

@@ -41,4 +41,5 @@
         <item>Favorits</item>
     </string-array>
     <string name="likes_format">%s M agrada</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -40,6 +40,14 @@ public class LoginActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (getSharedPreferences("PREFERENCE", MODE_PRIVATE).getString("LOGIN_USERNAME", null) != null) {
+            // Redirigir a MainActivity si ya hay un usuario conectado
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("USERNAME", getSharedPreferences("PREFERENCE", MODE_PRIVATE).getString("LOGIN_USERNAME", null));
+            startActivity(intent);
+            return;
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -81,7 +89,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (doLogin(user, pass)) {
                     // Redirigir a MainActivity en caso de inicio de sesión exitoso
                     Intent intent = new Intent(this, MainActivity.class);
+
                     intent.putExtra("USERNAME", user);
+
+                    // Guarda el nombre de usuario y contraseña en el sharedPreferences
+                    getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putString("LOGIN_USERNAME", user).putString("LOGIN_PASSWORD", pass).apply();
+
                     startActivity(intent);
                 } else {
                     errorText.setText(R.string.incorrect_credentials);

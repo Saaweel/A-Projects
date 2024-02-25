@@ -40,4 +40,5 @@
         <item>Gogokoenak</item>
     </string-array>
     <string name="likes_format">%s Gustuko Dituzu</string>
+    <string name="logout">Logout</string>
 </resources>
