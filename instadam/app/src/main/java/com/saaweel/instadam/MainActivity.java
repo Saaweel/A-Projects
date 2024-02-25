@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.saaweel.instadam.database.DBHelper;
 import com.saaweel.instadam.fragments.Home;
 import com.saaweel.instadam.fragments.Notify;
 import com.saaweel.instadam.fragments.Profile;
@@ -72,9 +73,37 @@ public class MainActivity extends AppCompatActivity {
 
         user = new User("jesustucci_");
         this.posts.add(new Post(user, "https://th.bing.com/th/id/R.99472a51b596c736f1703981dcbb9a10?rik=gbbtjTBAnWF8vA&riu=http%3a%2f%2fwww.hdcarwallpapers.com%2fwalls%2fmustang_shelby_gt350_4k-wide.jpg&ehk=siVB5D%2fRvNCdR7pn7fTjVF50e2Qg5W9wvLjfUIr2Kfg%3d&risl=&pid=ImgRaw&r=0"));
+    }
 
-        this.notifications.add(0, new Noti(user, post.getImage(), "Le ha gustado tu publicación"));
-        this.notifications.add(0, new Noti(user, "Ha comenzado a seguirte"));
+    /**
+     * Este método se encarga de cargar las notificaciones de
+     * la base de datos local SQLite
+     * @return void
+     */
+    private void loadNotifications() {
+        // Crear una instancia de la base de datos
+        DBHelper dbHelper = new DBHelper(this);
+
+        // Obtener las notificaciones de la base de datos
+        // Estructura de la matriz: [usuario, imagen, contenido, fecha]
+        String[][] notifications = dbHelper.getNotifications();
+
+        // Si se obtuvieron notificaciones
+        if (notifications != null) {
+            // Recorrer las notificaciones
+            for (String[] n : notifications) {
+                User user = new User(n[0]);
+
+                // Si la notificación tiene imagen
+                if (!n[1].isEmpty()) {
+                    // Añadir la notificación a la lista
+                    this.notifications.add(new Noti(user, n[1], n[2], n[3]));
+                } else {
+                    // Añadir la notificación a la lista
+                    this.notifications.add(new Noti(user, n[2], n[3]));
+                }
+            }
+        }
     }
 
     /*
@@ -200,6 +229,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Cargar los datos simulados
         loadSimulatedData();
+
+        // Cargar las notificaciones
+        loadNotifications();
 
         // Obtener la barra de navegación inferior
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);

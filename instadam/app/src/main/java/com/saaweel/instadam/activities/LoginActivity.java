@@ -2,21 +2,24 @@
 package com.saaweel.instadam.activities;
 
 // Declaraciones de librerías
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.saaweel.instadam.MainActivity;
 import com.saaweel.instadam.R;
-import com.saaweel.instadam.database.DBFrame;
-import com.saaweel.instadam.database.DBHelper;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Clase LoginActivity
@@ -24,7 +27,10 @@ import com.saaweel.instadam.database.DBHelper;
  * y proporciona una interfaz de usuario para que los usuarios inicien sesión o se registren.
  */
 public class LoginActivity extends AppCompatActivity {
-    private DBHelper dbHelper;
+    /**
+     * Instancia de la base de datos de Firebase.
+     */
+    FirebaseFirestore db;
 
     /**
      * Indica si el estado actual es para inicio de sesión (true) o registro (false).
@@ -86,8 +92,18 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             if (login) {
-                if (doLogin(user, pass)) {
-                    // Redirigir a MainActivity en caso de inicio de sesión exitoso
+                doLogin(user, pass, errorText);
+            } else {
+                String email = emailField.getText().toString();
+
+                if (email.isEmpty()) {
+                    errorText.setText(R.string.must_complete_fields);
+                    errorText.setVisibility(View.VISIBLE);
+                    return;
+                }
+                doRegister(user, pass, email, errorText);
+                if (false) {
+                    // Redirigir a MainActivity en caso de registro exitoso
                     Intent intent = new Intent(this, MainActivity.class);
 
                     intent.putExtra("USERNAME", user);
@@ -97,31 +113,15 @@ public class LoginActivity extends AppCompatActivity {
 
                     startActivity(intent);
                 } else {
-                    errorText.setText(R.string.incorrect_credentials);
-                    errorText.setVisibility(View.VISIBLE);
-                }
-            } else {
-                String email = emailField.getText().toString();
-
-                if (email.isEmpty()) {
-                    errorText.setText(R.string.must_complete_fields);
-                    errorText.setVisibility(View.VISIBLE);
-                    return;
-                }
-
-                if (doRegister(user, pass, email)) {
-                    // Redirigir a MainActivity en caso de registro exitoso
-                    Intent intent = new Intent(this, MainActivity.class);
-                    intent.putExtra("USERNAME", user);
-                    startActivity(intent);
-                } else {
                     errorText.setText(R.string.username_or_email_yet);
                     errorText.setVisibility(View.VISIBLE);
                 }
             }
         });
 
-        this.dbHelper = new DBHelper(this);
+        FirebaseApp.initializeApp(this);
+
+        this.db = FirebaseFirestore.getInstance();
     }
 
     /**
@@ -130,32 +130,49 @@ public class LoginActivity extends AppCompatActivity {
      * @param user  El nombre de usuario proporcionado por el usuario durante el registro.
      * @param pass  La contraseña proporcionada por el usuario durante el registro.
      * @param email El correo electrónico proporcionado por el usuario durante el registro.
-     * @return boolean Devuelve true si el registro es exitoso; de lo contrario, devuelve false.
+     * @param errorText El TextView que muestra el mensaje de error.
+     * @return void
      */
-    private boolean doRegister(String user, String pass, String email) {
-        Cursor cursor = this.dbHelper.getReadableDatabase().query(
-                DBFrame.TABLE_USERS,
-                new String[]{DBFrame.TABLE_USERS_USERNAME, DBFrame.TABLE_USERS_EMAIL},
-                DBFrame.TABLE_USERS_USERNAME + " = ? OR " + DBFrame.TABLE_USERS_EMAIL + " = ?",
-                new String[]{user, email},
-                null,
-                null,
-                null
-        );
+    private void doRegister(String user, String pass, String email, TextView errorText) {
+        this.db.collection("users").whereEqualTo("username", user).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                if (task.getResult().isEmpty()) {
+                    this.db.collection("users").whereEqualTo("email", email).get().addOnCompleteListener(task2 -> {
+                        if (task2.isSuccessful()) {
+                            if (task2.getResult().isEmpty()) {
+                                Map<String, Object> userToInsert = new HashMap<>();
 
-        if (cursor.getCount() > 0) {
-            return false;
-        }
+                                userToInsert.put("username", user);
+                                userToInsert.put("password", pass);
+                                userToInsert.put("email", email);
 
-        ContentValues values = new ContentValues();
+                                this.db.collection("users").add(userToInsert);
 
-        values.put("username", user);
-        values.put("email", email);
-        values.put("password", pass);
+                                // Guarda el nombre de usuario y contraseña en el sharedPreferences
+                                getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putString("LOGIN_USERNAME", user).putString("LOGIN_PASSWORD", pass).apply();
 
-        this.dbHelper.getWritableDatabase().insert(DBFrame.TABLE_USERS, null, values);
-
-        return true;
+                                // Redirigir a MainActivity en caso de registro exitoso
+                                Intent intent = new Intent(this, MainActivity.class);
+                                intent.putExtra("USERNAME", user);
+                                startActivity(intent);
+                            } else {
+                                errorText.setText(R.string.username_or_email_yet);
+                                errorText.setVisibility(View.VISIBLE);
+                            }
+                        } else {
+                            errorText.setText(R.string.error);
+                            errorText.setVisibility(View.VISIBLE);
+                        }
+                    });
+                } else {
+                    errorText.setText(R.string.username_or_email_yet);
+                    errorText.setVisibility(View.VISIBLE);
+                }
+            } else {
+                errorText.setText(R.string.error);
+                errorText.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     /**
@@ -163,19 +180,36 @@ public class LoginActivity extends AppCompatActivity {
      *
      * @param user El nombre de usuario proporcionado por el usuario durante el inicio de sesión.
      * @param pass La contraseña proporcionada por el usuario durante el inicio de sesión.
-     * @return boolean Devuelve true si el inicio de sesión es exitoso; de lo contrario, devuelve false.
+     * @param errorText El TextView que muestra el mensaje de error.
+     * @return void
      */
-    private boolean doLogin(String user, String pass) {
-        Cursor cursor = this.dbHelper.getReadableDatabase().query(
-                DBFrame.TABLE_USERS,
-                new String[]{DBFrame.TABLE_USERS_USERNAME, DBFrame.TABLE_USERS_PASSWORD},
-                DBFrame.TABLE_USERS_USERNAME + " = ? AND " + DBFrame.TABLE_USERS_PASSWORD + " = ?",
-                new String[]{user, pass},
-                null,
-                null,
-                null
-        );
+    private void doLogin(String user, String pass, TextView errorText) {
+        this.db.collection("users").whereEqualTo("username", user).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                if (!task.getResult().isEmpty()) {
+                    DocumentSnapshot document = task.getResult().getDocuments().get(0); // Obtén el primer documento (debería haber solo uno)
+                    if (document.getString("password").equals(pass)) {
+                        // Guarda el nombre de usuario y contraseña en el sharedPreferences
+                        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putString("LOGIN_USERNAME", user).putString("LOGIN_PASSWORD", pass).apply();
 
-        return cursor.getCount() > 0;
+                        // Redirigir a MainActivity en caso de inicio de sesión exitoso
+                        Intent intent = new Intent(this, MainActivity.class);
+                        intent.putExtra("USERNAME", user);
+                        startActivity(intent);
+                    } else {
+                        System.out.println("Contraseña incorrecta");
+                        errorText.setText(R.string.incorrect_credentials);
+                        errorText.setVisibility(View.VISIBLE);
+                    }
+                } else { // Usuario no encontrado
+                    System.out.println("Usuario no encontrado");
+                    errorText.setText(R.string.incorrect_credentials);
+                    errorText.setVisibility(View.VISIBLE);
+                }
+            } else { // Error al buscar el usuario
+                errorText.setText(R.string.error);
+                errorText.setVisibility(View.VISIBLE);
+            }
+        });
     }
 }

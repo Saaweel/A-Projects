@@ -2,6 +2,9 @@
 package com.saaweel.instadam.models;
 
 // Declaraciones de librerías
+import android.icu.text.SimpleDateFormat;
+
+import java.text.ParseException;
 import java.util.Date;
 
 /**
@@ -19,23 +22,46 @@ public class Noti {
      * @param user Usuario asociado a la notificación.
      * @param image Imagen asociada a la notificación.
      * @param content Contenido de la notificación.
+     * @param dateString Fecha de la notificación.
      */
-    public Noti(User user, String image, String content) {
-        this.user = user;
-        this.image = image;
-        this.content = content;
-        this.date = new Date();
-    }
+    public Noti(User user, String image, String content, String dateString) {
+            this.user = user;
+            this.image = image;
+            this.content = content;
+
+            // Formato de fecha esperado
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+            try {
+                // Convertir la cadena dateString a un objeto Date
+                this.date = dateFormat.parse(dateString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                // Manejar la excepción en caso de que la cadena no sea un formato válido
+            }
+        }
+
 
     /**
      * Constructor de la clase sin imagen.
      * @param user Usuario asociado a la notificación.
      * @param content Contenido de la notificación.
+     * @param dateString Fecha de la notificación.
      */
-    public Noti(User user, String content) {
+    public Noti(User user, String content, String dateString) {
         this.user = user;
         this.content = content;
-        this.date = new Date();
+
+        // Formato de fecha esperado
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        try {
+            // Convertir la cadena dateString a un objeto Date
+            this.date = dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            // Manejar la excepción en caso de que la cadena no sea un formato válido
+        }
     }
 
     /**

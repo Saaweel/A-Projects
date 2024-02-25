@@ -21,4 +21,20 @@ public class DBFrame {
             TABLE_USERS_USERNAME + " TEXT, " +
             TABLE_USERS_EMAIL + " TEXT, " +
             TABLE_USERS_PASSWORD + " TEXT)";
+
+    public static final String TABLE_NOTIFICATIONS = "notifications";
+    public static final String TABLE_NOTIFICATIONS_ID = "id";
+    public static final String TABLE_NOTIFICATIONS_USER = "user";
+    public static final String TABLE_NOTIFICATIONS_IMAGE = "image";
+    public static final String TABLE_NOTIFICATIONS_CONTENT = "content";
+    public static final String TABLE_NOTIFICATIONS_DATE = "date";
+
+    public static final String CREATE_TABLE_NOTIFICATIONS = "CREATE TABLE " + TABLE_NOTIFICATIONS + " (" +
+            TABLE_NOTIFICATIONS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            TABLE_NOTIFICATIONS_USER + " TEXT, " +
+            TABLE_NOTIFICATIONS_IMAGE + " TEXT, " +
+            TABLE_NOTIFICATIONS_CONTENT + " TEXT, " +
+            TABLE_NOTIFICATIONS_DATE + " TEXT)";
+
+    public static final String SELECT_NOTIFICATIONS = "SELECT * FROM " + TABLE_NOTIFICATIONS;
 }
