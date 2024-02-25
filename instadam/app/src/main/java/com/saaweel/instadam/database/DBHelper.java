@@ -36,7 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 DBFrame.TABLE_NOTIFICATIONS_USER + ", " +
                 DBFrame.TABLE_NOTIFICATIONS_IMAGE + ", " +
                 DBFrame.TABLE_NOTIFICATIONS_CONTENT + ", " +
-                DBFrame.TABLE_NOTIFICATIONS_DATE + ") VALUES ('jesustucci_', 'https://th.bing.com/th/id/OIP.yoyT2HWplwAAzSG_EcZIkwHaE8?rs=1&pid=ImgDetMain', 'Le ha gustado tu publicación', '2024-02-01 10:33:33')");
+                DBFrame.TABLE_NOTIFICATIONS_DATE + ") VALUES ('jesustucci_', 'https://i.imgur.com/umrnAix.jpg', 'Le ha gustado tu publicación', '2024-02-01 10:33:33')");
     }
 
     @Override

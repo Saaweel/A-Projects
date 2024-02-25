@@ -37,6 +37,8 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import okhttp3.MediaType;
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         return null; // Si no se encontró el usuario
     }
 
-    /*
+    /**
      * Este método se encarga de cambiar el fragmento que se muestra en pantalla
      * @param fragment El fragmento que se va a mostrar
      * @return void
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.mainActivity).setVisibility(View.VISIBLE);
     }
 
-    /*
+    /**
      * Este método se encarga de subir una imagen a Imgur y publicarla en los posts
      * @param bitmap La imagen que se va a subir
      * @return void
@@ -158,6 +160,14 @@ public class MainActivity extends AppCompatActivity {
 
                         // Añadir la publicación a la lista de publicaciones
                         posts.add(new Post(myUser, link));
+
+                        Map<String, Object> postData = new HashMap<>();
+                        postData.put("user", myUser.getUsername());
+                        postData.put("image", link);
+                        db.collection("posts").add(postData);
+
+                        // Cambiar el fragmento a la vista de inicio
+                        changeFragment(new Home(posts));
                     } catch (Exception e) {
                         e.printStackTrace();
                         Toast.makeText(getBaseContext(), "Hubo un error al subir la imagen", Toast.LENGTH_SHORT).show();
@@ -174,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /*
+    /**
      * Este método se encarga de obtener las publicaciones de un usuario
      * @param user El usuario del que se van a obtener las publicaciones
      * @param allPosts La lista de todas las publicaciones
@@ -257,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /*
+    /**
      * Este método se encarga de crear la vista principal de la aplicación
      * @param savedInstanceState Instancia guardada de la actividad
      * @return void

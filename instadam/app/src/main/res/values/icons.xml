@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="paper_plane" translatable="false">paper-plane</string>
-    <string name="ellipsis">ellipsis</string>
+    <string name="ellipsis" translatable="false">ellipsis</string>
     <string name="comment" translatable="false">comment</string>
     <string name="heart" translatable="false">heart</string>
     <string name="bookmark" translatable="false">bookmark</string>

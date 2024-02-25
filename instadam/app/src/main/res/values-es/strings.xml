@@ -40,5 +40,5 @@
         <item>Favoritos</item>
     </string-array>
     <string name="likes_format">%s Me gustas</string>
-    <string name="logout">Logout</string>
+    <string name="logout">Cerrar sesión</string>
 </resources>
