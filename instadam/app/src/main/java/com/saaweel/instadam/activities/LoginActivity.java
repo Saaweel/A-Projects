@@ -198,12 +198,10 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra("USERNAME", user);
                         startActivity(intent);
                     } else {
-                        System.out.println("Contraseña incorrecta");
                         errorText.setText(R.string.incorrect_credentials);
                         errorText.setVisibility(View.VISIBLE);
                     }
                 } else { // Usuario no encontrado
-                    System.out.println("Usuario no encontrado");
                     errorText.setText(R.string.incorrect_credentials);
                     errorText.setVisibility(View.VISIBLE);
                 }

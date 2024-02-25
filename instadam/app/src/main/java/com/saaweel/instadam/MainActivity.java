@@ -65,28 +65,13 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore db;
 
     /**
-     * Este método se encarga de cargar los datos simulados
-     * @return void
-     */
-    private void loadSimulatedData() {
-        posts = new ArrayList<>();
-        notifications = new ArrayList<>();
-
-        User user = new User("duki");
-        user.setVerified(true);
-        user.setAvatar("https://scontent-mad2-1.cdninstagram.com/v/t51.2885-19/374720732_135203229662888_2293027917940746544_n.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_cat=1&_nc_ohc=BWTFFXgjbIoAX_BxzWw&edm=ABmJApABAAAA&ccb=7-5&oh=00_AfA3oOXe3xVtY5KBpV0Yx95PkjIBUhZJNn2EqNPufjkpAg&oe=6563A6C5&_nc_sid=b41fef");
-        this.posts.add(new Post(user, "https://scontent-mad2-1.cdninstagram.com/v/t51.2885-15/402149041_704209018377717_7318977087116103029_n.heic?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMzg3eDEzODcuc2RyIn0&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_cat=109&_nc_ohc=P43We30SaaAAX8Z0JSZ&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzIzNTU2MjExODE0NDM1MjUzMg%3D%3D.2-ccb7-5&oh=00_AfChWN1tjluQp1-2s5ZTf2-AVsAoKuWXpudoeStlAorJaQ&oe=6562EAC5&_nc_sid=ee9879"));
-
-        user = new User("jesustucci_");
-        this.posts.add(new Post(user, "https://th.bing.com/th/id/R.99472a51b596c736f1703981dcbb9a10?rik=gbbtjTBAnWF8vA&riu=http%3a%2f%2fwww.hdcarwallpapers.com%2fwalls%2fmustang_shelby_gt350_4k-wide.jpg&ehk=siVB5D%2fRvNCdR7pn7fTjVF50e2Qg5W9wvLjfUIr2Kfg%3d&risl=&pid=ImgRaw&r=0"));
-    }
-
-    /**
      * Este método se encarga de cargar las notificaciones de
      * la base de datos local SQLite
      * @return void
      */
     private void loadNotifications() {
+        this.notifications = new ArrayList<>();
+
         // Crear una instancia de la base de datos
         DBHelper dbHelper = new DBHelper(this);
 
@@ -99,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
             // Recorrer las notificaciones
             for (String[] n : notifications) {
                 User user = getUserFromUsername(n[0]); // Obtener el usuario de la notificación
-
                 // Si la notificación tiene imagen
                 if (!n[1].isEmpty()) {
                     // Añadir la notificación a la lista
@@ -209,10 +193,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Este método se encarga de cargar todos los usuarios de la base de datos
+     * Este método se encarga de cargar los usuarios y las publicaciones de la base de datos
      * @return void
      */
-    private void loadUsers() {
+    private void loadData() {
         this.users = new ArrayList<>();
 
         this.db.collection("users").get().addOnCompleteListener(task -> {
@@ -237,8 +221,6 @@ public class MainActivity extends AppCompatActivity {
                         user.setFollows(Integer.parseInt(follows));
                     }
 
-                    System.out.println(user.getUsername() + " " + user.getAvatar() + " " + user.isVerified() + " " + user.getFollowers() + " " + user.getFollows());
-
                     this.users.add(user);
                 }
 
@@ -253,6 +235,25 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(this, LoginActivity.class));
                 }
             }
+
+            // Obtener las publicaciones de la base de datos
+            this.posts = new ArrayList<>();
+
+            this.db.collection("posts").get().addOnCompleteListener(task2 -> {
+                if (task2.isSuccessful()) {
+                    for (DocumentSnapshot document : task2.getResult().getDocuments()) {
+                        User user = getUserFromUsername(document.getString("user"));
+
+                        System.out.println(document.getString("user") + " " + document.getString("image"));
+                        if (user != null) {
+                            this.posts.add(new Post(user, document.getString("image")));
+                        }
+                    }
+                }
+
+                // Cambiar el fragmento a la vista de inicio
+                changeFragment(new Home(this.posts));
+            });
         });
     }
 
@@ -268,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.db = FirebaseFirestore.getInstance();
 
-        loadUsers();
+        loadData();
 
         // Crear un ActivityResultLauncher para la cámara y manejar el resultado
         ActivityResultLauncher<Intent> activityCamera = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -295,10 +296,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Cargar los datos simulados
-        loadSimulatedData();
-
-        // Cargar las notificaciones
+        // Carga inicial de notificaciones para el contador de la barra de navegación inferior
         loadNotifications();
 
         // Obtener la barra de navegación inferior
@@ -306,9 +304,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Mostrar el número de notificaciones en la barra de navegación inferior
         bottomNavigation.getOrCreateBadge(R.id.notifyItem).setNumber(this.notifications.size());
-
-        // Cambiar el fragmento a la vista de inicio
-        changeFragment(new Home(this.posts));
 
         // Manejar los eventos de la barra de navegación inferior
         bottomNavigation.setOnItemSelectedListener(item -> {
@@ -332,6 +327,8 @@ public class MainActivity extends AppCompatActivity {
                     activityCamera.launch(cameraIntent);
                 }
             } else if (item.getItemId() == R.id.notifyItem) { // Si se seleccionó la vista de notificaciones
+                loadNotifications(); // Cargar las notificaciones
+
                 changeFragment(new Notify(this.notifications)); // Cambiar el fragmento a la vista de notificaciones
 
                 bottomNavigation.getOrCreateBadge(R.id.notifyItem).setVisible(false); // Ocultar el número de notificaciones
