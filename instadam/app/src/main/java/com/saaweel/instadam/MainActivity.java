@@ -54,6 +54,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Esta clase es la encargada de mostrar la vista principal de la aplicación
  */
 public class MainActivity extends AppCompatActivity {
+    private ArrayList<User> users;
     private ArrayList<Post> posts;
     private ArrayList<Noti> notifications;
     private User myUser;
@@ -90,27 +91,41 @@ public class MainActivity extends AppCompatActivity {
         DBHelper dbHelper = new DBHelper(this);
 
         // Obtener las notificaciones de la base de datos
-        // Estructura de la matriz: [usuario, avatar, imagen, contenido, fecha]
+        // Estructura de la matriz: [usuario, imagen, contenido, fecha]
         String[][] notifications = dbHelper.getNotifications();
 
         // Si se obtuvieron notificaciones
         if (notifications != null) {
             // Recorrer las notificaciones
             for (String[] n : notifications) {
-                User user = new User(n[0]);
-                if (!n[1].isEmpty())
-                    user.setAvatar(n[1]);
+                User user = getUserFromUsername(n[0]); // Obtener el usuario de la notificación
 
                 // Si la notificación tiene imagen
-                if (!n[2].isEmpty()) {
+                if (!n[1].isEmpty()) {
                     // Añadir la notificación a la lista
-                    this.notifications.add(new Noti(user, n[2], n[3], n[4]));
+                    this.notifications.add(new Noti(user, n[1], n[2], n[3]));
                 } else {
                     // Añadir la notificación a la lista
-                    this.notifications.add(new Noti(user, n[3], n[4]));
+                    this.notifications.add(new Noti(user, n[2], n[3]));
                 }
             }
         }
+    }
+
+    /**
+     * Este método se encarga de obtener un usuario a partir de un nombre de usuario
+     * @param username El nombre de usuario
+     * @return User El usuario
+     */
+    private User getUserFromUsername(String username) {
+        // Recorrer todos los usuarios
+        for (User u : this.users) {
+            if (u.getUsername().equals(username)) { // Si el nombre de usuario coincide
+                return u; // Devolver el usuario
+            }
+        }
+
+        return null; // Si no se encontró el usuario
     }
 
     /*
@@ -193,42 +208,49 @@ public class MainActivity extends AppCompatActivity {
         return posts;
     }
 
-    /*
-     * Este método se encarga de cargar mi usuario a raíz de un nombre de usuario
-     * @param username El nombre de usuario
+    /**
+     * Este método se encarga de cargar todos los usuarios de la base de datos
+     * @return void
      */
-    private void loadMyUser(String username) {
-        System.out.println(username);
-        this.db.collection("users").whereEqualTo("username", username).get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                if (!task.getResult().isEmpty()) {
-                    DocumentSnapshot document = task.getResult().getDocuments().get(0); // Obtén el primer documento (debería haber solo uno)
+    private void loadUsers() {
+        this.users = new ArrayList<>();
 
-                    this.myUser = new User(document.getString("username"));
+        this.db.collection("users").get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (DocumentSnapshot document : task.getResult().getDocuments()) {
+                    User user = new User(document.getString("username"));
 
                     String avatar = document.getString("avatar");
                     if (avatar != null) {
-                        this.myUser.setAvatar(avatar);
+                        user.setAvatar(avatar);
                     }
 
-                    this.myUser.setVerified(Boolean.TRUE.equals(document.getBoolean("verified")));
+                    user.setVerified(Boolean.TRUE.equals(document.getBoolean("verified")));
 
                     String followers = document.getString("followers");
                     if (followers != null) {
-                        this.myUser.setFollowers(Integer.parseInt(followers));
+                        user.setFollowers(Integer.parseInt(followers));
                     }
 
                     String follows = document.getString("follows");
                     if (follows != null) {
-                        this.myUser.setFollows(Integer.parseInt(follows));
+                        user.setFollows(Integer.parseInt(follows));
                     }
-                } else {
-                    Toast.makeText(this, "Hubo un error al cargar tu usuario", Toast.LENGTH_SHORT).show();
+
+                    System.out.println(user.getUsername() + " " + user.getAvatar() + " " + user.isVerified() + " " + user.getFollowers() + " " + user.getFollows());
+
+                    this.users.add(user);
+                }
+
+                // Obtener el usuario actual
+                this.myUser = getUserFromUsername(getIntent().getStringExtra("USERNAME"));
+
+                if (this.myUser == null) {
+                    Toast.makeText(this, "Ha ocurrido un error al cargar el usuario", Toast.LENGTH_SHORT).show();
 
                     getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().clear().apply();
 
-                    Intent intent = new Intent(this, LoginActivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(this, LoginActivity.class));
                 }
             }
         });
@@ -246,8 +268,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.db = FirebaseFirestore.getInstance();
 
-        // Cargar tu usuario temporalmente
-        loadMyUser(getIntent().getStringExtra("USERNAME"));
+        loadUsers();
 
         // Crear un ActivityResultLauncher para la cámara y manejar el resultado
         ActivityResultLauncher<Intent> activityCamera = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {

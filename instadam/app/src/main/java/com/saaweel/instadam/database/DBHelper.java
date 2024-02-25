@@ -28,17 +28,15 @@ public class DBHelper extends SQLiteOpenHelper {
         // Simulación de notificaciones
         db.execSQL("INSERT INTO " + DBFrame.TABLE_NOTIFICATIONS + " (" +
                 DBFrame.TABLE_NOTIFICATIONS_USER + ", " +
-                DBFrame.TABLE_NOTIFICATIONS_AVATAR + ", " +
                 DBFrame.TABLE_NOTIFICATIONS_IMAGE + ", " +
                 DBFrame.TABLE_NOTIFICATIONS_CONTENT + ", " +
-                DBFrame.TABLE_NOTIFICATIONS_DATE + ") VALUES ('saaweel', 'https://i.imgur.com/iCpWNjS.png', '', 'Notificación de prueba', '2024-01-01 00:00:00')");
+                DBFrame.TABLE_NOTIFICATIONS_DATE + ") VALUES ('saaweel', '', 'Notificación de prueba', '2024-01-01 00:00:00')");
 
         db.execSQL("INSERT INTO " + DBFrame.TABLE_NOTIFICATIONS + " (" +
                 DBFrame.TABLE_NOTIFICATIONS_USER + ", " +
-                DBFrame.TABLE_NOTIFICATIONS_AVATAR + ", " +
                 DBFrame.TABLE_NOTIFICATIONS_IMAGE + ", " +
                 DBFrame.TABLE_NOTIFICATIONS_CONTENT + ", " +
-                DBFrame.TABLE_NOTIFICATIONS_DATE + ") VALUES ('jesustucci_', '', 'https://th.bing.com/th/id/OIP.yoyT2HWplwAAzSG_EcZIkwHaE8?rs=1&pid=ImgDetMain', 'Le ha gustado tu publicación', '2024-02-01 10:33:33')");
+                DBFrame.TABLE_NOTIFICATIONS_DATE + ") VALUES ('jesustucci_', 'https://th.bing.com/th/id/OIP.yoyT2HWplwAAzSG_EcZIkwHaE8?rs=1&pid=ImgDetMain', 'Le ha gustado tu publicación', '2024-02-01 10:33:33')");
     }
 
     @Override
@@ -55,14 +53,13 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(DBFrame.SELECT_NOTIFICATIONS, null);
 
         if (cursor.moveToFirst()) {
-            notifications = new String[cursor.getCount()][5];
+            notifications = new String[cursor.getCount()][4];
             int i = 0;
             do {
                 notifications[i][0] = cursor.getString(cursor.getColumnIndex(DBFrame.TABLE_NOTIFICATIONS_USER));
-                notifications[i][1] = cursor.getString(cursor.getColumnIndex(DBFrame.TABLE_NOTIFICATIONS_AVATAR));
-                notifications[i][2] = cursor.getString(cursor.getColumnIndex(DBFrame.TABLE_NOTIFICATIONS_IMAGE));
-                notifications[i][3] = cursor.getString(cursor.getColumnIndex(DBFrame.TABLE_NOTIFICATIONS_CONTENT));
-                notifications[i][4] = cursor.getString(cursor.getColumnIndex(DBFrame.TABLE_NOTIFICATIONS_DATE));
+                notifications[i][1] = cursor.getString(cursor.getColumnIndex(DBFrame.TABLE_NOTIFICATIONS_IMAGE));
+                notifications[i][2] = cursor.getString(cursor.getColumnIndex(DBFrame.TABLE_NOTIFICATIONS_CONTENT));
+                notifications[i][3] = cursor.getString(cursor.getColumnIndex(DBFrame.TABLE_NOTIFICATIONS_DATE));
                 i++;
             } while (cursor.moveToNext());
         }
