@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         if (getSharedPreferences("PREFERENCE", MODE_PRIVATE).getString("LOGIN_USERNAME", null) != null) {
             // Redirigir a MainActivity si ya hay un usuario conectado
             Intent intent = new Intent(this, MainActivity.class);
@@ -54,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         // Elementos de la interfaz de usuario

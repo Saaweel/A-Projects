@@ -20,6 +20,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.saaweel.instadam.activities.LoginActivity;
 import com.saaweel.instadam.database.DBHelper;
 import com.saaweel.instadam.fragments.Home;
 import com.saaweel.instadam.fragments.Notify;
@@ -56,15 +59,17 @@ public class MainActivity extends AppCompatActivity {
     private User myUser;
 
     /**
+     * Instancia de la base de datos de Firebase.
+     */
+    FirebaseFirestore db;
+
+    /**
      * Este método se encarga de cargar los datos simulados
      * @return void
      */
     private void loadSimulatedData() {
         posts = new ArrayList<>();
         notifications = new ArrayList<>();
-
-        Post post = new Post(this.myUser, "https://th.bing.com/th/id/OIP.yoyT2HWplwAAzSG_EcZIkwHaE8?rs=1&pid=ImgDetMain");
-        this.posts.add(post);
 
         User user = new User("duki");
         user.setVerified(true);
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         DBHelper dbHelper = new DBHelper(this);
 
         // Obtener las notificaciones de la base de datos
-        // Estructura de la matriz: [usuario, imagen, contenido, fecha]
+        // Estructura de la matriz: [usuario, avatar, imagen, contenido, fecha]
         String[][] notifications = dbHelper.getNotifications();
 
         // Si se obtuvieron notificaciones
@@ -93,14 +98,16 @@ public class MainActivity extends AppCompatActivity {
             // Recorrer las notificaciones
             for (String[] n : notifications) {
                 User user = new User(n[0]);
+                if (!n[1].isEmpty())
+                    user.setAvatar(n[1]);
 
                 // Si la notificación tiene imagen
-                if (!n[1].isEmpty()) {
+                if (!n[2].isEmpty()) {
                     // Añadir la notificación a la lista
-                    this.notifications.add(new Noti(user, n[1], n[2], n[3]));
+                    this.notifications.add(new Noti(user, n[2], n[3], n[4]));
                 } else {
                     // Añadir la notificación a la lista
-                    this.notifications.add(new Noti(user, n[2], n[3]));
+                    this.notifications.add(new Noti(user, n[3], n[4]));
                 }
             }
         }
@@ -187,6 +194,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
+     * Este método se encarga de cargar mi usuario a raíz de un nombre de usuario
+     * @param username El nombre de usuario
+     */
+    private void loadMyUser(String username) {
+        System.out.println(username);
+        this.db.collection("users").whereEqualTo("username", username).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                if (!task.getResult().isEmpty()) {
+                    DocumentSnapshot document = task.getResult().getDocuments().get(0); // Obtén el primer documento (debería haber solo uno)
+
+                    this.myUser = new User(document.getString("username"));
+
+                    String avatar = document.getString("avatar");
+                    if (avatar != null) {
+                        this.myUser.setAvatar(avatar);
+                    }
+
+                    this.myUser.setVerified(Boolean.TRUE.equals(document.getBoolean("verified")));
+
+                    String followers = document.getString("followers");
+                    if (followers != null) {
+                        this.myUser.setFollowers(Integer.parseInt(followers));
+                    }
+
+                    String follows = document.getString("follows");
+                    if (follows != null) {
+                        this.myUser.setFollows(Integer.parseInt(follows));
+                    }
+                } else {
+                    Toast.makeText(this, "Hubo un error al cargar tu usuario", Toast.LENGTH_SHORT).show();
+
+                    getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().clear().apply();
+
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+    }
+
+    /*
      * Este método se encarga de crear la vista principal de la aplicación
      * @param savedInstanceState Instancia guardada de la actividad
      * @return void
@@ -196,11 +244,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.db = FirebaseFirestore.getInstance();
+
         // Cargar tu usuario temporalmente
-        this.myUser = new User(getIntent().getStringExtra("USERNAME"));
-
-        this.myUser.setAvatar("https://scontent-mad1-1.cdninstagram.com/v/t51.2885-19/383839216_257979966663607_8135137719360071505_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=T4sKuG5ajsoAX-6SgvJ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfArkFFTwvOG6cVAX850DMmSPHcYtKY9RR6vUF-KAoRhMA&oe=6562AA47&_nc_sid=8b3546");
-
+        loadMyUser(getIntent().getStringExtra("USERNAME"));
 
         // Crear un ActivityResultLauncher para la cámara y manejar el resultado
         ActivityResultLauncher<Intent> activityCamera = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
