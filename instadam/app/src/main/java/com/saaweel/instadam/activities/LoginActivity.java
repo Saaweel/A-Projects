@@ -103,20 +103,6 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 doRegister(user, pass, email, errorText);
-                if (false) {
-                    // Redirigir a MainActivity en caso de registro exitoso
-                    Intent intent = new Intent(this, MainActivity.class);
-
-                    intent.putExtra("USERNAME", user);
-
-                    // Guarda el nombre de usuario y contraseña en el sharedPreferences
-                    getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putString("LOGIN_USERNAME", user).putString("LOGIN_PASSWORD", pass).apply();
-
-                    startActivity(intent);
-                } else {
-                    errorText.setText(R.string.username_or_email_yet);
-                    errorText.setVisibility(View.VISIBLE);
-                }
             }
         });
 
@@ -166,6 +152,7 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("USERNAME", user);
                                 startActivity(intent);
                             } else {
+                                System.out.println("Email ya registrado");
                                 errorText.setText(R.string.username_or_email_yet);
                                 errorText.setVisibility(View.VISIBLE);
                             }
@@ -175,6 +162,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
                 } else {
+                    System.out.println("Usuario ya registrado");
                     errorText.setText(R.string.username_or_email_yet);
                     errorText.setVisibility(View.VISIBLE);
                 }
