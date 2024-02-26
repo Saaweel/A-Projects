@@ -321,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
                 changeFragment(new Home(this.posts)); // Cambiar el fragmento a la vista de inicio
 
             } else if (item.getItemId() == R.id.searchItem) { // Si se seleccionó la vista de búsqueda
-                changeFragment(new Search(this.posts)); // Cambiar el fragmento a la vista de búsqueda
+                changeFragment(new Search(this.posts, this.users)); // Cambiar el fragmento a la vista de búsqueda
 
             } else if (item.getItemId() == R.id.cameraItem) { // Si se seleccionó la vista de cámara
                 // Comprobar si la aplicación tiene permiso para usar la cámara

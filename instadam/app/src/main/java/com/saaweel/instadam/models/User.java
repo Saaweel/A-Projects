@@ -81,6 +81,14 @@ public class User {
     }
 
     /**
+     * Método para obtener la cantidad de seguidores del usuario de manera legible.
+     * @return Cantidad de seguidores del usuario de manera legible.
+     */
+    public String getFollowersString() {
+        return this.getReadableNumber(followers);
+    }
+
+    /**
      * Método para establecer la cantidad de seguidores del usuario.
      * @param followers Nueva cantidad de seguidores del usuario.
      */
@@ -94,6 +102,14 @@ public class User {
      */
     public int getFollows() {
         return follows;
+    }
+
+    /**
+     * Método para obtener la cantidad de usuarios que sigue el usuario de manera legible.
+     * @return Cantidad de usuarios que sigue el usuario de manera legible.
+     */
+    public String getFollowsString() {
+        return this.getReadableNumber(follows);
     }
 
     /**
@@ -111,5 +127,28 @@ public class User {
      */
     public boolean equals(User user) {
         return this.username.equals(user.getUsername());
+    }
+
+    /**
+     * Método para obtener la representación legible de un número.
+     * @param number Número a representar.
+     * @return Representación legible del número.
+     */
+    public static String getReadableNumber(int number) {
+        if (number < 10000) {
+            return String.valueOf(number);
+        } else if (number < 1000000) {
+            String retval = String.valueOf(number / 1000);
+            if (number % 1000 != 0) {
+                retval += "." + String.valueOf((number % 1000) / 100);
+            }
+            return retval + " K";
+        } else {
+            String retval = String.valueOf(number / 1000000);
+            if (number % 1000000 != 0) {
+                retval += "." + String.valueOf((number % 1000000) / 100000);
+            }
+            return retval + " M";
+        }
     }
 }

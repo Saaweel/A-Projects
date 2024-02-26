@@ -100,10 +100,10 @@ public class Profile extends Fragment {
         postCount.setText(String.valueOf(this.posts.size())); // Asignar cantidad de publicaciones a la vista de cantidad de publicaciones
 
         TextView followerCount = view.findViewById(R.id.followerConut);
-        followerCount.setText(String.valueOf(this.user.getFollowers())); // Asignar cantidad de seguidores a la vista de cantidad de seguidores
+        followerCount.setText(this.user.getFollowsString()); // Asignar cantidad de seguidores a la vista de cantidad de seguidores
 
         TextView followsCount = view.findViewById(R.id.followsConut);
-        followsCount.setText(String.valueOf(this.user.getFollows())); // Asignar cantidad de seguidos a la vista de cantidad de seguidos
+        followsCount.setText(this.user.getFollowsString()); // Asignar cantidad de seguidos a la vista de cantidad de seguidos
 
         if (isMyProfile) { // Si el perfil es del propio usuario
             Button followButton = view.findViewById(R.id.followButton);
