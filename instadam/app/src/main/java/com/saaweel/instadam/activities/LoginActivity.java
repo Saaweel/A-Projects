@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         // Iniciar el proceso de inicio de sesión o registro
         button.setOnClickListener(v -> {
             String user = userField.getText().toString();
-            String pass = passwordField.getText().toString();
+            String pass = hashPassword(passwordField.getText().toString());
 
             if (user.isEmpty() || pass.isEmpty()) {
                 errorText.setText(R.string.must_complete_fields);
@@ -123,6 +123,15 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
         this.db = FirebaseFirestore.getInstance();
+    }
+
+    /**
+     * Devuelve la contraseña cifrada.
+     * @param password La contraseña a cifrar.
+     * @return La contraseña cifrada.
+     */
+    private String hashPassword(String password) {
+        return Integer.toString(password.hashCode(), 16);
     }
 
     /**
