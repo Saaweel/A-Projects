@@ -79,7 +79,7 @@
                 android:background="@drawable/app_title"
                 android:backgroundTint="#309C35"
                 android:gravity="center"
-                android:text="@string/tool"
+                android:text="@string/tools"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
