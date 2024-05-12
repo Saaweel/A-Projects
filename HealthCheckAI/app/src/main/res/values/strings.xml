@@ -35,4 +35,7 @@
     <string name="allergy">Allergy</string>
     <string name="add">Add</string>
     <string name="remove">Remove</string>
+    <string name="avatar">Avatar</string>
+    <string name="old_password">Old Password</string>
+    <string name="change_password">Change Password</string>
 </resources>
