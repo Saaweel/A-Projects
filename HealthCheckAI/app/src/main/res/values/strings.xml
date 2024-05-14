@@ -23,8 +23,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="o">------ o ------</string>
     <string name="register">Register</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="basic">Basic</string>
     <string name="save">Save</string>
     <string name="detailed">Detailed</string>
@@ -38,4 +36,26 @@
     <string name="avatar">Avatar</string>
     <string name="old_password">Old Password</string>
     <string name="change_password">Change Password</string>
+    <string name="terms_and_conditions_1">Terms and Conditions</string>
+    <string name="terms_and_conditions_2">Acceptance of the Terms</string>
+    <string name="terms_and_conditions_3">Welcome to HealthCheck AI. By downloading, installing, or using the application, you agree to be bound by these Terms and Conditions (hereinafter, "Terms"). If you do not agree with these Terms, you should not use the application.</string>
+    <string name="terms_and_conditions_4">Description of the Service</string>
+    <string name="terms_and_conditions_5">HealthCheck AI is a mobile application that uses artificial intelligence to help users evaluate their health symptoms and provide possible diagnoses and personalized recommendations. The application allows users to enter their personal data and symptoms and offers additional tools for health monitoring.</string>
+    <string name="terms_and_conditions_6">Account Registration and Security</string>
+    <string name="terms_and_conditions_7">To use HealthCheck AI, you must register by providing personal information, such as your name, email address, and password. You are responsible for maintaining the confidentiality of your account and password and for all activities that occur under your account. HealthCheck AI will not be liable for any loss or damage arising from your failure to comply with this security obligation.</string>
+    <string name="terms_and_conditions_8">Use of Personal Data</string>
+    <string name="terms_and_conditions_9">HealthCheck AI collects and uses personal data such as age, weight, allergies, and other relevant data to provide accurate diagnoses and recommendations. All personal data will be treated in accordance with our Privacy Policy, which can be viewed in the application.</string>
+    <string name="terms_and_conditions_10">Limitation of Liability</string>
+    <string name="terms_and_conditions_11">HealthCheck AI is not a substitute for professional medical consultation. The diagnoses and recommendations provided by the application are for informational purposes only and should not be used as a basis for making medical decisions without consulting a healthcare professional. HealthCheck AI is not responsible for any damage or harm resulting from the use of the application.</string>
+    <string name="terms_and_conditions_12">Intellectual Property</string>
+    <string name="terms_and_conditions_13">All rights, titles, and interests in HealthCheck AI, including but not limited to software, text, graphics, and logos, are the exclusive property of HealthCheck AI and are protected by intellectual property laws. No rights or licenses are granted to you regarding these intellectual property rights.</string>
+    <string name="terms_and_conditions_14">Service and Terms Modifications</string>
+    <string name="terms_and_conditions_15">HealthCheck AI reserves the right to modify or discontinue, temporarily or permanently, the service offered by the application without prior notice. We also reserve the right to modify these Terms at any time. Changes will be effective once posted in the application. Your continued use of the application after any modifications have been posted constitutes your acceptance of those changes.</string>
+    <string name="terms_and_conditions_16">Termination</string>
+    <string name="terms_and_conditions_17">We may suspend or terminate your access to the application at any time, without prior notice, if we believe you have violated these Terms or any applicable law, or for any other reason. Upon termination, all rights and licenses granted to you under these Terms will cease.</string>
+    <string name="terms_and_conditions_18">Governing Law</string>
+    <string name="terms_and_conditions_19">These Terms will be governed and construed in accordance with the laws of Spain, without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the courts located in Mérida, Spain, to resolve any dispute arising out of these Terms or the use of the application.</string>
+    <string name="terms_and_conditions_20">Contact</string>
+    <string name="terms_and_conditions_21">If you have any questions or concerns about these Terms, please contact us at sauldiazdiaz210@gmail.com.</string>
+    <string name="terms_and_conditions_22">By using HealthCheck AI, you agree to these Terms and Conditions in their entirety.</string>
 </resources>
