@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
         SplashScreen.installSplashScreen(this);
 
-        setContentView(R.layout.activity_main_activity);
+        setContentView(R.layout.activity_main);
     }
 }
