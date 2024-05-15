@@ -37,10 +37,10 @@
         <ImageView
             android:id="@+id/avatar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_marginBottom="10dp"
             android:contentDescription="@string/avatar"
-            android:src="@tools:sample/avatars"
+            android:src="@mipmap/ic_launcher_round"
             tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
