@@ -1,155 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="0"
-    android:layout_marginTop="10dp"
-    android:columnCount="2"
-    android:orientation="horizontal">
+    android:baselineAligned="false"
+    android:gravity="center">
 
-    <FrameLayout
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_app1">
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        tools:ignore="InefficientWeight,UselessParent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/icon_app1"
-            tools:ignore="ImageContrastCheck" />
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_app1">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/app_title"
-            android:backgroundTint="#67A3D8"
-            android:gravity="center"
-            android:text="@string/chat"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-    </FrameLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/icon_app1"
+                tools:ignore="ImageContrastCheck" />
 
-    <FrameLayout
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_app2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/app_title"
+                android:backgroundTint="#67A3D8"
+                android:gravity="center"
+                android:text="@string/chat"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+        </FrameLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/icon_app2"
-            tools:ignore="ImageContrastCheck" />
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_app2">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/app_title"
-            android:backgroundTint="#309C35"
-            android:gravity="center"
-            android:text="@string/tools"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-    </FrameLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/icon_app2"
+                tools:ignore="ImageContrastCheck" />
 
-    <FrameLayout
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_app3">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/app_title"
+                android:backgroundTint="#309C35"
+                android:gravity="center"
+                android:text="@string/tools"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+        </FrameLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/icon_app3"
-            tools:ignore="ImageContrastCheck" />
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_app3">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/app_title"
-            android:backgroundTint="#D29D36"
-            android:gravity="center"
-            android:text="@string/personal_data"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-    </FrameLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/icon_app3"
+                tools:ignore="ImageContrastCheck" />
 
-    <FrameLayout
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_app4">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/app_title"
+                android:backgroundTint="#D29D36"
+                android:gravity="center"
+                android:text="@string/personal_data"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+        </FrameLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/icon_app4"
-            tools:ignore="ImageContrastCheck" />
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_app4">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/app_title"
-            android:backgroundTint="#AD7FDA"
-            android:gravity="center"
-            android:text="@string/settings"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-    </FrameLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/icon_app4"
+                tools:ignore="ImageContrastCheck" />
 
-    <FrameLayout
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_app5">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/app_title"
+                android:backgroundTint="#AD7FDA"
+                android:gravity="center"
+                android:text="@string/settings"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+        </FrameLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/icon_app5"
-            tools:ignore="ImageContrastCheck" />
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_app5">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/app_title"
-            android:backgroundTint="#6B696A"
-            android:gravity="center"
-            android:text="@string/about"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-    </FrameLayout>
-</GridLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/icon_app5"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/app_title"
+                android:backgroundTint="#6B696A"
+                android:gravity="center"
+                android:text="@string/about"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+        </FrameLayout>
+    </GridLayout>
+</LinearLayout>
