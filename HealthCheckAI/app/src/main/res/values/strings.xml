@@ -58,4 +58,11 @@
     <string name="terms_and_conditions_20">Contact</string>
     <string name="terms_and_conditions_21">If you have any questions or concerns about these Terms, please contact us at sauldiazdiaz210@gmail.com.</string>
     <string name="terms_and_conditions_22">By using HealthCheck AI, you agree to these Terms and Conditions in their entirety.</string>
+    <string name="must_enter_username">You must enter a username</string>
+    <string name="must_enter_password">You must enter a password</string>
+    <string name="must_enter_email">You must enter an email</string>
+    <string name="unexpected_error">An unexpected error occurred</string>
+    <string name="username_or_email_already_exists">Username or email already exists</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="logout">Logout</string>
 </resources>
