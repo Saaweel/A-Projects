@@ -95,6 +95,27 @@ public class LoginActivity extends AppCompatActivity {
                     emailField.setError(getString(R.string.must_enter_email));
                     return;
                 }
+
+                if (user.length() < 6) {
+                    userField.setError(getString(R.string.username_must_be_at_least_6_characters));
+                    return;
+                }
+
+                if (pass.length() < 8) {
+                    passwordField.setError(getString(R.string.password_must_be_at_least_8_characters));
+                    return;
+                }
+
+                if (!pass.matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$")) {
+                    passwordField.setError(getString(R.string.password_must_contain_number_letter_special));
+                    return;
+                }
+
+                if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    emailField.setError(getString(R.string.invalid_email_address));
+                    return;
+                }
+
                 doRegister(user, pass, email);
             }
         });
