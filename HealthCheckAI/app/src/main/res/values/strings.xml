@@ -17,6 +17,7 @@
     <string name="imc_20_normal">20 (Normal)</string>
     <string name="calorie_calculator">Calorie Calculator</string>
     <string name="_1500_cal_day">1500 cal/day</string>
+    <string name="cal_day">cal/day</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
@@ -65,4 +66,12 @@
     <string name="username_or_email_already_exists">Username or email already exists</string>
     <string name="invalid_credentials">Invalid credentials</string>
     <string name="logout">Logout</string>
+    <string name="error_invalid_height">Ivalid height</string>
+    <string name="error_invalid_weight">Ivalid weight</string>
+    <string name="imc_status_normal">Normal</string>
+    <string name="error_invalid_age">Invalid age</string>
+    <string name="error_invalid_gender">Invalid gender</string>
+    <string name="imc_status_underweight">Underweight</string>
+    <string name="imc_status_overweight">Overweight</string>
+    <string name="imc_status_obesity">Obesity</string>
 </resources>
