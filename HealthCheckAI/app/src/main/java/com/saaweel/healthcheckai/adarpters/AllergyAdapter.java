@@ -24,11 +24,16 @@ public class AllergyAdapter extends RecyclerView.Adapter<Allergy> {
     }
     @Override
     public void onBindViewHolder(Allergy allergy, final int position) {
-        allergy.setData(localDataSet.get(position));
+        allergy.setData(localDataSet.get(position), this);
     }
 
     @Override
     public int getItemCount() {
         return localDataSet.size();
+    }
+
+    public void removeData(String data) {
+        localDataSet.remove(data);
+        notifyDataSetChanged();
     }
 }

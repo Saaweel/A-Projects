@@ -11,6 +11,7 @@ import com.saaweel.healthcheckai.R;
 public class Allergy extends RecyclerView.ViewHolder {
     TextView name;
     ImageView remove;
+    AllergyAdapter allergyAdapter;
 
     public Allergy(View view) {
         super(view);
@@ -20,11 +21,12 @@ public class Allergy extends RecyclerView.ViewHolder {
         this.remove = view.findViewById(R.id.remove);
 
         this.remove.setOnClickListener(v -> {
-
+            allergyAdapter.removeData(name.getText().toString());
         });
     }
 
-    public void setData(String name) {
+    public void setData(String name, AllergyAdapter allergyAdapter) {
         this.name.setText(name);
+        this.allergyAdapter = allergyAdapter;
     }
 }
