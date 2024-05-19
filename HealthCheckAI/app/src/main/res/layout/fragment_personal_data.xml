@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragments.PersonalDataFragment">
 
@@ -143,7 +144,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <RadioGroup
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
@@ -151,63 +152,21 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/heart_problems"
-                android:textColor="#000000" />
-
-            <RadioButton
+            <CheckBox
                 android:id="@+id/pd_heart_problems"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/yes"
-                tools:ignore="DuplicateSpeakableTextCheck" />
-
-            <RadioButton
-                android:id="@+id/pd_no_heart_problems"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/no"
-                tools:ignore="DuplicateSpeakableTextCheck" />
-
-        </RadioGroup>
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/diabetes"
-                android:textColor="#000000" />
+                android:text="@string/heart_problems" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/pd_diabetes"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/yes"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                android:layout_weight="1"
+                android:text="@string/diabetes" />
 
-            <RadioButton
-                android:id="@+id/pd_no_diabetes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/no"
-                tools:ignore="DuplicateSpeakableTextCheck" />
-
-        </RadioGroup>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -226,13 +185,13 @@
                 android:backgroundTint="#FFFFFF"
                 android:ems="10"
                 android:hint="@string/allergy"
-                android:inputType="number"
+                android:inputType="text"
                 android:minHeight="48dp"
                 android:textAlignment="center"
                 tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
 
             <Button
-                android:id="@+id/send_dd_gallery"
+                android:id="@+id/send_add_allergy"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_marginEnd="10dp"
@@ -243,6 +202,8 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/allergy_list"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />

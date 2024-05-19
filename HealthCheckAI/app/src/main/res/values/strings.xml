@@ -78,4 +78,6 @@
     <string name="password_must_be_at_least_8_characters">La contraseña debe tener al menos 8 caracteres</string>
     <string name="password_must_contain_number_letter_special">La contraseña debe contener al menos un número, una letra y un carácter especial</string>
     <string name="invalid_email_address">Dirección de correo electrónico no válida</string>
+    <string name="user_not_found">User not found</string>
+    <string name="personal_data_updated">Personal data updated</string>
 </resources>

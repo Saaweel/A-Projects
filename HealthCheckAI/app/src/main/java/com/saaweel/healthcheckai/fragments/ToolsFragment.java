@@ -79,7 +79,7 @@ public class ToolsFragment extends Fragment {
                         String weight = document.getString("weight");
 
                         if (gender != null) {
-                            if (gender == "male") {
+                            if (gender.equals("male")) {
                                 kcal_male.setChecked(true);
                             } else {
                                 kcal_female.setChecked(true);
