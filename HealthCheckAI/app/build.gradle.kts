@@ -48,4 +48,10 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
 
     implementation("com.google.firebase:firebase-firestore:25.0.0")
+
+    implementation("com.google.firebase:firebase-storage:20.0.0")
+
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation("com.squareup.picasso:picasso:2.8")
 }

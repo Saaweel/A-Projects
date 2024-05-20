@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Elementos de la interfaz de usuario
         this.title = findViewById(R.id.title);
-        this.alterButton = findViewById(R.id.alterButton);
+        this.alterButton = findViewById(R.id.logout);
         this.sendButton = findViewById(R.id.sendButton);
         this.userField = findViewById(R.id.username);
         this.emailField = findViewById(R.id.email);
@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
      * @param password La contraseña a cifrar.
      * @return La contraseña cifrada.
      */
-    private String hashPassword(String password) {
+    public static String hashPassword(String password) {
         return Integer.toString(password.hashCode(), 16);
     }
 

@@ -129,7 +129,7 @@
             android:textColor="#616161" />
 
         <Button
-            android:id="@+id/alterButton"
+            android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"

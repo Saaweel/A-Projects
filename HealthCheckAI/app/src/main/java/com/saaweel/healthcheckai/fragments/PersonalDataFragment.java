@@ -59,7 +59,7 @@ public class PersonalDataFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_personal_data, container, false);
 
-        Button send_pd = view.findViewById(R.id.send_pd);
+        Button send_pd = view.findViewById(R.id.save);
         RadioButton pd_male = view.findViewById(R.id.pd_male);
         RadioButton pd_female = view.findViewById(R.id.pd_female);
         EditText pd_age = view.findViewById(R.id.pd_age);

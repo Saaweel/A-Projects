@@ -74,10 +74,21 @@
     <string name="imc_status_underweight">Underweight</string>
     <string name="imc_status_overweight">Overweight</string>
     <string name="imc_status_obesity">Obesity</string>
-    <string name="username_must_be_at_least_6_characters">El nombre de usuario debe tener al menos 6 caracteres</string>
-    <string name="password_must_be_at_least_8_characters">La contraseña debe tener al menos 8 caracteres</string>
-    <string name="password_must_contain_number_letter_special">La contraseña debe contener al menos un número, una letra y un carácter especial</string>
-    <string name="invalid_email_address">Dirección de correo electrónico no válida</string>
+    <string name="username_must_be_at_least_6_characters">Username must be at least 6 characters</string>
+    <string name="password_must_be_at_least_8_characters">Password must be at least 8 characters</string>
+    <string name="password_must_contain_number_letter_special">Password must contain at least one number, one letter, and one special character</string>
+    <string name="invalid_email_address">Invalid email address</string>
     <string name="user_not_found">User not found</string>
     <string name="personal_data_updated">Personal data updated</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="enter_old_password">You must enter the old password</string>
+    <string name="incorrect_password">Incorrect password</string>
+    <string name="select_image">Select image</string>
+    <string name="take_picture">Take picture</string>
+    <string name="select_from_gallery">Select from gallery</string>
+    <string name="upload_successful">Upload successful</string>
+    <string name="upload_failed">Upload failed</string>
+    <string name="saved">Saved</string>
+    <string name="avatar_updated">Avatar updated</string>
+    <string name="password_updated">Password updated</string>
 </resources>
