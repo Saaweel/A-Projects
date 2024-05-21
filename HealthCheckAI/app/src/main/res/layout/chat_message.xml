@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/round_corners"
+    android:backgroundTint="#EDEDED"
     android:gravity="center_vertical">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avatar"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:layout_weight="1"
+        android:layout_weight="5"
         android:importantForAccessibility="no"
         android:src="@mipmap/ic_launcher_round"
         tools:ignore="ImageContrastCheck" />
@@ -33,6 +36,7 @@
             android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
+            android:text="@string/hello_world"
+            tools:ignore="TextContrastCheck" />
     </LinearLayout>
 </LinearLayout>
