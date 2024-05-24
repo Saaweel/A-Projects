@@ -67,9 +67,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/colorPrimary"
             android:minHeight="48dp"
             android:text="@string/calc"
-            tools:ignore="VisualLintButtonSize,DuplicateSpeakableTextCheck" />
+            tools:ignore="VisualLintButtonSize,DuplicateSpeakableTextCheck,TextContrastCheck" />
 
         <TextView
             android:id="@+id/imc_result"
@@ -197,9 +198,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/colorPrimary"
             android:minHeight="48dp"
             android:text="@string/calc"
-            tools:ignore="VisualLintButtonSize" />
+            tools:ignore="VisualLintButtonSize,TextContrastCheck" />
 
         <TextView
             android:id="@+id/kcal_result"

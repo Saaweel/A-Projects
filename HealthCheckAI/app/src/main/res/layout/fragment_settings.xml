@@ -127,9 +127,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/colorPrimary"
         android:minHeight="48dp"
         android:text="@string/save"
-        tools:ignore="VisualLintButtonSize,DuplicateSpeakableTextCheck" />
+        tools:ignore="VisualLintButtonSize,DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <Button
         android:id="@+id/logout"

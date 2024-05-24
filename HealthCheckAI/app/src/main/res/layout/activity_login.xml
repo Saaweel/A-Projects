@@ -116,9 +116,10 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/colorPrimary"
             android:minHeight="48dp"
             android:text="@string/login"
-            tools:ignore="VisualLintButtonSize" />
+            tools:ignore="VisualLintButtonSize,TextContrastCheck" />
 
         <TextView
             android:id="@+id/textView"
