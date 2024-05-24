@@ -106,12 +106,12 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (!pass.matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$")) {
+                if (!pass.matches(".*\\d.*") || !pass.matches(".*[a-zA-Z].*") || !pass.matches(".*[^a-zA-Z0-9].*")) {
                     passwordField.setError(getString(R.string.password_must_contain_number_letter_special));
                     return;
                 }
 
-                if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     emailField.setError(getString(R.string.invalid_email_address));
                     return;
                 }

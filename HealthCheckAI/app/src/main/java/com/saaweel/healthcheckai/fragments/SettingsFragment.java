@@ -132,7 +132,7 @@ public class SettingsFragment extends Fragment {
                     return;
                 }
 
-                if (!passwordText.matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$")) {
+                if (!passwordText.matches(".*\\d.*") || !passwordText.matches(".*[a-zA-Z].*") || !passwordText.matches(".*[^a-zA-Z0-9].*")) {
                     password.setError(getString(R.string.password_must_contain_number_letter_special));
                     return;
                 }
