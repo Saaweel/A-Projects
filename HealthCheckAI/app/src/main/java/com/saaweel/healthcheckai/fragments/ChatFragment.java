@@ -11,14 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.saaweel.healthcheckai.R;
 import com.saaweel.healthcheckai.activities.MainActivity;
-import com.saaweel.healthcheckai.adarpters.AllergyAdapter;
 import com.saaweel.healthcheckai.adarpters.MessageAdapter;
 
 import java.util.ArrayList;
@@ -68,7 +67,7 @@ public class ChatFragment extends Fragment {
             }
         });
 
-        this.db.collection("messages").whereEqualTo("chat", this.myUsername).get().addOnCompleteListener(task -> {
+        this.db.collection("messages").orderBy("timestamp").whereEqualTo("chat", this.myUsername).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (int i = 0; i < task.getResult().getDocuments().size(); i++) {
                     Map<String, Object> message = task.getResult().getDocuments().get(i).getData();
@@ -96,7 +95,7 @@ public class ChatFragment extends Fragment {
         messages.setAdapter(new MessageAdapter(this.messageList));
 
         EditText messageInput = view.findViewById(R.id.messageInput);
-        Button sendMessage = view.findViewById(R.id.sendMessage);
+        ImageView sendMessage = view.findViewById(R.id.sendMessage);
 
         sendMessage.setOnClickListener(v -> {
             String message = messageInput.getText().toString();
@@ -114,6 +113,8 @@ public class ChatFragment extends Fragment {
 
     private void addMessage(String role, String message) {
         Map<String, Object> messageToInsert = new HashMap<>();
+
+        messageToInsert.put("timestamp", System.currentTimeMillis());
 
         messageToInsert.put("chat", this.myUsername);
 
