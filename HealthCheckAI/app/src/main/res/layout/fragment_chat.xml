@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:background="#EDEDED"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -44,13 +45,12 @@
             android:textAlignment="textStart"
             tools:ignore="DuplicateSpeakableTextCheck,NestedWeights,RtlSymmetry,VisualLintTextFieldSize" />
 
-        <Button
+        <ImageView
             android:id="@+id/sendMessage"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="@string/send"
+            android:src="@drawable/paper_plane"
             tools:ignore="VisualLintButtonSize,VisualLintBounds,TouchTargetSizeCheck,TextContrastCheck" />
     </LinearLayout>
 
