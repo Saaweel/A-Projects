@@ -57,10 +57,15 @@ public class SettingsFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         MainActivity activity = (MainActivity) requireActivity();
+
+        activity.setTabs("app4");
+
         activity.getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 activity.changeFragment(new MainFragment());
+
+                activity.setTabs("home");
             }
         });
     }

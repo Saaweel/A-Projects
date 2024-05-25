@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         SplashScreen.installSplashScreen(this);
 
         if (getSharedPreferences("PREFERENCE", MODE_PRIVATE).getString("LOGIN_USERNAME", null) != null) {
-            // Redirigir a MainActivity si ya hay un usuario conectado
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("USERNAME", getSharedPreferences("PREFERENCE", MODE_PRIVATE).getString("LOGIN_USERNAME", null));
             startActivity(intent);
@@ -44,7 +43,6 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-        // Elementos de la interfaz de usuario
         this.title = findViewById(R.id.title);
         this.alterButton = findViewById(R.id.logout);
         this.sendButton = findViewById(R.id.sendButton);
@@ -52,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
         this.emailField = findViewById(R.id.email);
         this.passwordField = findViewById(R.id.password);
 
-        // Cambiar entre las pantallas de inicio de sesión y registro
         alterButton.setOnClickListener(v -> {
             login = !login;
 
@@ -69,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Iniciar el proceso de inicio de sesión o registro
         sendButton.setOnClickListener(v -> {
             String user = userField.getText().toString();
             String pass = hashPassword(passwordField.getText().toString());
@@ -125,22 +121,10 @@ public class LoginActivity extends AppCompatActivity {
         this.db = FirebaseFirestore.getInstance();
     }
 
-    /**
-     * Devuelve la contraseña cifrada.
-     * @param password La contraseña a cifrar.
-     * @return La contraseña cifrada.
-     */
     public static String hashPassword(String password) {
         return Integer.toString(password.hashCode(), 16);
     }
 
-    /**
-     * Proceso de registro y devuelve un booleano que indica si el registro fue exitoso.
-     *
-     * @param user  El nombre de usuario proporcionado por el usuario durante el registro.
-     * @param pass  La contraseña proporcionada por el usuario durante el registro.
-     * @param email El correo electrónico proporcionado por el usuario durante el registro.
-     */
     private void doRegister(String user, String pass, String email) {
         this.db.collection("users").whereEqualTo("username", user).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -156,10 +140,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 this.db.collection("users").add(userToInsert);
 
-                                // Guarda el nombre de usuario y contraseña en el sharedPreferences
                                 getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putString("LOGIN_USERNAME", user).putString("LOGIN_PASSWORD", pass).apply();
 
-                                // Redirigir a MainActivity en caso de registro exitoso
                                 Intent intent = new Intent(this, MainActivity.class);
                                 intent.putExtra("USERNAME", user);
                                 startActivity(intent);
@@ -191,22 +173,14 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Proceso de inicio de sesión y devuelve un booleano que indica si el inicio de sesión fue exitoso.
-     *
-     * @param user El nombre de usuario proporcionado por el usuario durante el inicio de sesión.
-     * @param pass La contraseña proporcionada por el usuario durante el inicio de sesión.
-     */
     private void doLogin(String user, String pass) {
         this.db.collection("users").whereEqualTo("username", user).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 if (!task.getResult().isEmpty()) {
                     DocumentSnapshot document = task.getResult().getDocuments().get(0); // Obtén el primer documento (debería haber solo uno)
                     if (Objects.equals(document.getString("password"), pass)) {
-                        // Guarda el nombre de usuario y contraseña en el sharedPreferences
                         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putString("LOGIN_USERNAME", user).putString("LOGIN_PASSWORD", pass).apply();
 
-                        // Redirigir a MainActivity en caso de inicio de sesión exitoso
                         Intent intent = new Intent(this, MainActivity.class);
                         intent.putExtra("USERNAME", user);
                         startActivity(intent);
@@ -214,11 +188,11 @@ public class LoginActivity extends AppCompatActivity {
                         userField.setError(getString(R.string.invalid_credentials));
                         passwordField.setError(getString(R.string.invalid_credentials));
                     }
-                } else { // Usuario no encontrado
+                } else {
                     userField.setError(getString(R.string.invalid_credentials));
                     passwordField.setError(getString(R.string.invalid_credentials));
                 }
-            } else { // Error al buscar el usuario
+            } else {
                 userField.setError(getString(R.string.unexpected_error));
                 passwordField.setError(getString(R.string.unexpected_error));
 

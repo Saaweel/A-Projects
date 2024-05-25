@@ -47,10 +47,15 @@ public class PersonalDataFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         MainActivity activity = (MainActivity) requireActivity();
+
+        activity.setTabs("app3");
+
         activity.getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 activity.changeFragment(new MainFragment());
+
+                activity.setTabs("home");
             }
         });
     }
