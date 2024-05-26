@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setTabs(String selected) {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
         if (selected.equals("home")) {
             app_title.setVisibility(View.VISIBLE);
             quickApp1.setVisibility(View.GONE);
@@ -82,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             switch (selected) {
                 case "app1":
                     quickApp1.setImageResource(R.drawable.icon_app1_selected);
+                    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
                     break;
                 case "app2":
                     quickApp2.setImageResource(R.drawable.icon_app2_selected);
