@@ -22,6 +22,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/round_corners"
         android:backgroundTint="#EDEDED"
+        android:elevation="5dp"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -132,6 +133,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/round_corners"
         android:backgroundTint="#EDEDED"
+        android:elevation="5dp"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -206,10 +208,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/allergy_list"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <Button
             android:id="@+id/send_detailed_pd"

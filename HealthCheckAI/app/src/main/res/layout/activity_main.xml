@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_weight="0"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/round_bottom"
+        android:backgroundTint="@color/colorPrimary"
+        android:elevation="5dp"
         android:gravity="center"
         android:orientation="horizontal">
 
