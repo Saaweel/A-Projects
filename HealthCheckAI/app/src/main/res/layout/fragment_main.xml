@@ -7,7 +7,7 @@
     android:gravity="center">
 
     <GridLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0"
         android:columnCount="2"
@@ -17,8 +17,10 @@
 
         <FrameLayout
             android:id="@+id/app1"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_margin="10dp"
             android:background="@drawable/bg_app1">
 
@@ -47,8 +49,10 @@
 
         <FrameLayout
             android:id="@+id/app2"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_margin="10dp"
             android:background="@drawable/bg_app2">
 
@@ -77,8 +81,10 @@
 
         <FrameLayout
             android:id="@+id/app3"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_margin="10dp"
             android:background="@drawable/bg_app3">
 
@@ -107,8 +113,10 @@
 
         <FrameLayout
             android:id="@+id/app4"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_margin="10dp"
             android:background="@drawable/bg_app4">
 
@@ -137,8 +145,10 @@
 
         <FrameLayout
             android:id="@+id/app5"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_margin="10dp"
             android:background="@drawable/bg_app5">
 
