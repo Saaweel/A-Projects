@@ -18,25 +18,35 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
+        <TextView
             android:id="@+id/quickApp1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/icon_app1"
+            android:elevation="2dp"
+            android:fontFamily="@font/fa_regular"
+            android:rotation="20"
+            android:text="comment-dots"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
             android:visibility="gone"
-            tools:ignore="ImageContrastCheck,VisualLintBounds" />
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
-        <ImageView
+        <TextView
             android:id="@+id/quickApp2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/icon_app2"
+            android:elevation="2dp"
+            android:fontFamily="@font/fa_regular"
+            android:rotation="20"
+            android:text="lightbulb"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
             android:visibility="gone"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
         <ImageView
             android:layout_width="50dp"
@@ -56,24 +66,35 @@
             android:textStyle="bold"
             tools:ignore="TextContrastCheck" />
 
-        <ImageView
+        <TextView
             android:id="@+id/quickApp3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/icon_app3"
+            android:elevation="2dp"
+            android:fontFamily="@font/fa_regular"
+            android:rotation="20"
+            android:text="id-card"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
             android:visibility="gone"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
-        <ImageView
+        <TextView
             android:id="@+id/quickApp4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:src="@drawable/icon_app4"
+            android:elevation="2dp"
+            android:fontFamily="@font/fa_regular"
+            android:rotation="20"
+            android:text="sun"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
             android:visibility="gone"
-            tools:ignore="ContentDescription,ImageContrastCheck,VisualLintBounds" />
+            tools:ignore="HardcodedText,TextContrastCheck" />
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView

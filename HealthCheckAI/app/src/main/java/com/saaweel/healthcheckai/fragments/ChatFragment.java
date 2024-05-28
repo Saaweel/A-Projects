@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -169,7 +170,7 @@ public class ChatFragment extends Fragment {
         });
 
         EditText messageInput = view.findViewById(R.id.messageInput);
-        ImageView sendMessage = view.findViewById(R.id.sendMessage);
+        TextView sendMessage = view.findViewById(R.id.sendMessage);
 
         sendMessage.setOnClickListener(v -> {
             String messageText = messageInput.getText().toString();

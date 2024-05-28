@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -74,7 +75,7 @@ public class PersonalDataFragment extends Fragment {
         CheckBox pd_heart_problems = view.findViewById(R.id.pd_heart_problems);
         CheckBox pd_diabetes = view.findViewById(R.id.pd_diabetes);
         EditText add_allergy = view.findViewById(R.id.add_allergy);
-        Button send_add_allergy = view.findViewById(R.id.send_add_allergy);
+        TextView send_add_allergy = view.findViewById(R.id.send_add_allergy);
         RecyclerView allergy_list = view.findViewById(R.id.allergy_list);
         Button send_detailed_pd = view.findViewById(R.id.send_detailed_pd);
 

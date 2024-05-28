@@ -22,7 +22,7 @@ import androidx.fragment.app.Fragment;
  *
  */
 public class MainActivity extends AppCompatActivity {
-    private ImageView quickApp1, quickApp2, quickApp3, quickApp4;
+    private TextView quickApp1, quickApp2, quickApp3, quickApp4;
     private TextView app_title;
 
     @Override
@@ -77,24 +77,24 @@ public class MainActivity extends AppCompatActivity {
             quickApp3.setVisibility(View.GONE);
             quickApp4.setVisibility(View.GONE);
         } else {
-            quickApp1.setImageResource(R.drawable.icon_app1);
-            quickApp2.setImageResource(R.drawable.icon_app2);
-            quickApp3.setImageResource(R.drawable.icon_app3);
-            quickApp4.setImageResource(R.drawable.icon_app4);
+            quickApp1.setTextSize(30);
+            quickApp2.setTextSize(30);
+            quickApp3.setTextSize(30);
+            quickApp4.setTextSize(30);
 
             switch (selected) {
                 case "app1":
-                    quickApp1.setImageResource(R.drawable.icon_app1_selected);
+                    quickApp1.setTextSize(50);
                     getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
                     break;
                 case "app2":
-                    quickApp2.setImageResource(R.drawable.icon_app2_selected);
+                    quickApp2.setTextSize(50);
                     break;
                 case "app3":
-                    quickApp3.setImageResource(R.drawable.icon_app3_selected);
+                    quickApp3.setTextSize(50);
                     break;
                 case "app4":
-                    quickApp4.setImageResource(R.drawable.icon_app4_selected);
+                    quickApp4.setTextSize(50);
                     break;
             }
 

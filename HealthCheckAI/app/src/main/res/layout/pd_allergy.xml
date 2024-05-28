@@ -19,14 +19,17 @@
         android:textColor="#000000"
         android:textSize="16sp" />
 
-    <ImageView
+    <TextView
         android:id="@+id/remove"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:contentDescription="@string/remove"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:src="@drawable/trash"
-        tools:ignore="ImageContrastCheck" />
+        android:background="@drawable/round_corners"
+        android:backgroundTint="@color/colorPrimary"
+        android:elevation="2dp"
+        android:fontFamily="@font/fa_regular"
+        android:padding="10dp"
+        android:text="trash-can"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 </LinearLayout>

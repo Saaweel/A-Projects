@@ -181,13 +181,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
 
                 <EditText
                     android:id="@+id/add_allergy"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="48dp"
-                    android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="5"
                     android:autofillHints=""
@@ -200,14 +202,19 @@
                     android:textAlignment="center"
                     tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
 
-                <Button
+                <TextView
                     android:id="@+id/send_add_allergy"
                     android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:text="@string/add"
-                    tools:ignore="TouchTargetSizeCheck,VisualLintBounds" />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corners"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/fa_regular"
+                    android:padding="10dp"
+                    android:text="plus"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText,TextContrastCheck" />
 
             </LinearLayout>
 

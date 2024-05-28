@@ -24,13 +24,17 @@
             android:layout_margin="10dp"
             android:background="@drawable/bg_app1">
 
-            <ImageView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/icon_app1"
-                tools:ignore="ImageContrastCheck" />
+                android:fontFamily="@font/fa_regular"
+                android:gravity="center"
+                android:textSize="120sp"
+                android:textColor="#FFFFFF"
+                android:text="comment-dots"
+                android:rotation="20"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -56,13 +60,17 @@
             android:layout_margin="10dp"
             android:background="@drawable/bg_app2">
 
-            <ImageView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/icon_app2"
-                tools:ignore="ImageContrastCheck" />
+                android:fontFamily="@font/fa_regular"
+                android:gravity="center"
+                android:textSize="120sp"
+                android:textColor="#FFFFFF"
+                android:text="lightbulb"
+                android:rotation="20"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -88,13 +96,17 @@
             android:layout_margin="10dp"
             android:background="@drawable/bg_app3">
 
-            <ImageView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/icon_app3"
-                tools:ignore="ImageContrastCheck" />
+                android:fontFamily="@font/fa_regular"
+                android:gravity="center"
+                android:textSize="120sp"
+                android:textColor="#FFFFFF"
+                android:text="id-card"
+                android:rotation="20"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -120,13 +132,17 @@
             android:layout_margin="10dp"
             android:background="@drawable/bg_app4">
 
-            <ImageView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/icon_app4"
-                tools:ignore="ImageContrastCheck" />
+                android:fontFamily="@font/fa_regular"
+                android:gravity="center"
+                android:textSize="120sp"
+                android:textColor="#FFFFFF"
+                android:text="sun"
+                android:rotation="15"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -152,13 +168,17 @@
             android:layout_margin="10dp"
             android:background="@drawable/bg_app5">
 
-            <ImageView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/icon_app5"
-                tools:ignore="ImageContrastCheck" />
+                android:fontFamily="@font/fa_regular"
+                android:gravity="center"
+                android:textSize="120sp"
+                android:textColor="#FFFFFF"
+                android:text="circle-question"
+                android:rotation="20"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:layout_width="match_parent"

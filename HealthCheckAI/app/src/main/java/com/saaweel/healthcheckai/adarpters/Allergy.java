@@ -10,7 +10,7 @@ import com.saaweel.healthcheckai.R;
 
 public class Allergy extends RecyclerView.ViewHolder {
     TextView name;
-    ImageView remove;
+    TextView remove;
     AllergyAdapter allergyAdapter;
 
     public Allergy(View view) {
