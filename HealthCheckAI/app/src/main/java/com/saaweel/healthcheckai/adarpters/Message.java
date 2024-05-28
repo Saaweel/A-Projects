@@ -21,12 +21,15 @@ public class Message extends RecyclerView.ViewHolder {
         message = view.findViewById(R.id.message);
     }
 
-    public void setData(String avatar, String username, String message) {
-        if (!avatar.isEmpty()) {
-            Picasso.get().load(avatar).into(this.avatar);
+    public void setData(String username, String avatarUrl, String message) {
+        this.username.setText(username);
+
+        if (!avatarUrl.isEmpty()) {
+            Picasso.get().load(avatarUrl).into(this.avatar);
+        } else {
+            this.avatar.setImageResource(R.mipmap.ic_launcher_round);
         }
 
-        this.username.setText(username);
         this.message.setText(message);
     }
 }

@@ -94,4 +94,8 @@
     <string name="message">Message</string>
     <string name="send">Send</string>
     <string name="logo">Logo</string>
+    <string name="clear_chat_data">Clear chat data</string>
+    <string name="clear_chat">Clear chat</string>
+    <string name="are_you_sure_you_want_to_clear_chat">Are you sure you want to cleat the chat??</string>
+    <string name="chat_cleared">Chat cleared</string>
 </resources>

@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.saaweel.healthcheckai"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -25,6 +25,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            // Add
         }
     }
     compileOptions {
@@ -54,4 +56,6 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
     implementation("com.squareup.picasso:picasso:2.8")
+
+    implementation("com.theokanning.openai-gpt3-java:service:0.11.1")
 }

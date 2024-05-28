@@ -111,6 +111,7 @@ public class SettingsFragment extends Fragment {
         EditText confirmPassword = view.findViewById(R.id.confirmPassword);
         Button save = view.findViewById(R.id.save);
         Button logout = view.findViewById(R.id.logout);
+        Button clearChat = view.findViewById(R.id.clearChat);
 
         this.db.collection("users").whereEqualTo("username", this.getActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE).getString("LOGIN_USERNAME", "")).get().addOnCompleteListener(task -> {
             if (task.isSuccessful() && task.getResult().getDocuments().size() > 0) {
@@ -182,6 +183,32 @@ public class SettingsFragment extends Fragment {
 
             Intent intent = new Intent(this.getContext(), LoginActivity.class);
             startActivity(intent);
+        });
+
+        clearChat.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
+            builder.setTitle(getString(R.string.clear_chat));
+            builder.setMessage(getString(R.string.are_you_sure_you_want_to_clear_chat));
+
+            builder.setPositiveButton(getString(R.string.yes), (dialog, which) -> {
+                this.db.collection("messages").whereEqualTo("chat", this.getActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE).getString("LOGIN_USERNAME", "")).get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (int i = 0; i < task.getResult().getDocuments().size(); i++) {
+                            this.db.collection("messages").document(task.getResult().getDocuments().get(i).getId()).delete();
+                        }
+                    }
+                });
+
+                dialog.dismiss();
+
+                Toast.makeText(getActivity(), getString(R.string.chat_cleared), Toast.LENGTH_SHORT).show();
+            });
+
+            builder.setNegativeButton(getString(R.string.no), (dialog, which) -> {
+                dialog.dismiss();
+            });
+
+            builder.show();
         });
 
         return view;

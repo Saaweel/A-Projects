@@ -8,13 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.saaweel.healthcheckai.R;
+import com.theokanning.openai.completion.chat.ChatMessage;
+import com.theokanning.openai.completion.chat.ChatMessageRole;
 
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<Message> {
-    List<String []> messageDataSet;
-    public MessageAdapter(List<String []> messageDataSet) {
+    List<ChatMessage> messageDataSet;
+    private String myAvatarUrl;
+    private String myUsername;
+    public MessageAdapter(List<ChatMessage> messageDataSet, String myUsername, String myAvatarUrl) {
         this.messageDataSet = messageDataSet;
+        this.myUsername = myUsername;
+        this.myAvatarUrl = myAvatarUrl;
     }
 
     @Override
@@ -25,9 +31,16 @@ public class MessageAdapter extends RecyclerView.Adapter<Message> {
 
     @Override
     public void onBindViewHolder(@NonNull Message message, int position) {
-        String [] data = messageDataSet.get(position);
+        ChatMessage data = messageDataSet.get(position);
+        String username = "HealthCheckAI";
+        String avatarUrl = "";
 
-        message.setData(data[0], data[1], data[2]);
+        if (data.getRole().equals(ChatMessageRole.USER.value())) {
+            username = this.myUsername;
+            avatarUrl = this.myAvatarUrl;
+        }
+
+        message.setData(username, avatarUrl, data.getContent());
     }
 
     @Override
