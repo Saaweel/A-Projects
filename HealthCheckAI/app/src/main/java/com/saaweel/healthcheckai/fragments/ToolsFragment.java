@@ -68,7 +68,7 @@ public class ToolsFragment extends Fragment {
         EditText kcal_weight = view.findViewById(R.id.kcal_weight);
         Spinner kcal_activity = view.findViewById(R.id.kcal_activity);
 
-        kcal_activity.setAdapter(new ArrayAdapter<>(this.getContext(), android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.activity)));
+        kcal_activity.setAdapter(new ArrayAdapter<>(this.getContext(), R.layout.spinner_item, getResources().getStringArray(R.array.activity)));
 
         String username = this.getActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE).getString("LOGIN_USERNAME", null);
 
